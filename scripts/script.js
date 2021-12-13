@@ -207,7 +207,7 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
       document.getElementById("login").style.display = "block";
       document.getElementById("user-menu-ul-container-id").style.display = "none";
       lastPopUp = "popup-grid-item";
-      document.getElementById("popup-grid-item").display = "none";
+      document.getElementById("popup-grid-item").style.display = "none";
       console.log("OCULTA")
       //document.getElementById(lastPopUp).style.display = "flex";
       return;
@@ -460,6 +460,11 @@ function closeForm(){
     reset_red();
     // recupera el scroll vertical
     document.body.style.overflowY = "visible";
+
+    if(lastPopUp == "popup-grid-item"){
+      document.getElementById("popup-grid-item").style.display = "flex";
+      lastPopUp = "";
+    }
 }
 
 //Mostrar ayuda
@@ -1910,12 +1915,10 @@ function openExp(element){
   for (var i=0; i<html.length; i++){
     if (html[i].indexOf("p>Por: ") == 0) {
       user= html[i].substring(7, html[i].length);
-      console.log(user);
     }
 
     if (html[i].indexOf("h3>") == 0) {
       title= html[i].substring(3, html[i].length);
-      console.log(title);
     }
   }
 
@@ -4212,7 +4215,7 @@ function menuListaAnadeMyColeccion(listaElement, nombreExperiencia){
       document.getElementById("login").style.display = "block";
       document.getElementById("user-menu-ul-container-id").style.display = "none";
       //lastPopUp = "popup-grid-item";
-      document.getElementById("popup-grid-item").style.display = "none";
+      //document.getElementById("popup-grid-item").style.display = "none";
       return;
     }
   }

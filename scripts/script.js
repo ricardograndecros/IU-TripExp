@@ -18,10 +18,10 @@ $(document).ready(function(){
 
 /*
   document.getElementById("search-input").addEventListener("keyup", function(event) {
-  console.log("listener activado, key: ", parseInt(event.key));
+  //console.log("listener activado, key: ", parseInt(event.key));
 
     if (/[a-zA-Z0-9-_ ]/.test(event.key) || event.key=='keyback') { // if a letter pressed or removed
-        console.log("pressed: ", event.key);
+        //console.log("pressed: ", event.key);
         search(); 
     }
   }); 
@@ -44,10 +44,10 @@ $(document).ready(function(){
 $(document).ready(function(){
 
   document.getElementById("add-comment").addEventListener("keyup", function(event) {
-  console.log("listener activado, key: ", parseInt(event.key));
+  //console.log("listener activado, key: ", parseInt(event.key));
 
     if (/[a-zA-Z0-9-_ ]/.test(event.key) || event.key=='keyback') { // if a letter pressed or removed
-        console.log("pressed: ", event.key);
+        //console.log("pressed: ", event.key);
         writeConsole(); 
     }
   });
@@ -57,7 +57,7 @@ $(window).on("load", iniciarPagina);
 //window.onload = iniciarPagina();
 
 function iniciarPagina(){
-  console.log("HOla");
+  ////console.log("HOla");
   //Experiencias
   crearCookiesExpIniciales();
   expCookies=getExpCookies();
@@ -105,7 +105,7 @@ function getExpCookies(){
 
 //CAMBIOS CUANDO LO ENTREGUEMOS PONER experiences.length ¡¡¡¡¡¡¡¡12!!!!!!!!!
 function buildInitialExperiences(experiences){
-  console.log("Hola")
+  ////console.log("Hola")
 
   let initial = ["BlancaM+Un día en Madrid", "Menchh+París en 48 horas",  "Mari17ng+La Barcelona de Gaudí", "BlancaM+Roma antigua", "BigRaiko+Visitar el Big Ben, Londres", "Joao46+Turismo en Lisboa", 
   "BigRaiko+Playas en Llanes", "CarlossBuche+Viena y sus palacios", "Juli08+Caravana por el norte de España", "Juli08+Mejor paella de Valencia", "BlancaM+Milán, ciudad de la moda", "CarlossBuche+Arenal Sound"];
@@ -168,12 +168,12 @@ function buildInitialExperiences(experiences){
                       "</div>";
     }
   }
-  //console.log(experiencesGrid);
+  ////console.log(experiencesGrid);
 
   myexperiencesGrid = document.getElementById("initial-experiences-grid");
   myexperiencesGrid.innerHTML = experiencesGrid;
 
-  console.log("USUARIO: " + loggedInEmail);
+  ////console.log("USUARIO: " + loggedInEmail);
   if(loggedInEmail != ""){
     Array.from(myexperiencesGrid.childNodes).forEach(experience => {
       experience.childNodes[0].childNodes[3].childNodes[1].childNodes[1].addEventListener("mouseenter", function(event){
@@ -208,7 +208,7 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
       document.getElementById("user-menu-ul-container-id").style.display = "none";
       lastPopUp = "popup-grid-item";
       document.getElementById("popup-grid-item").style.display = "none";
-      console.log("OCULTA")
+      ////console.log("OCULTA")
       //document.getElementById(lastPopUp).style.display = "flex";
       return;
     }
@@ -220,7 +220,7 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
   for(var j=0; j<ec.length; j++){
     let exp=JSON.parse(ec[j]);
     if(exp.title==nombreExperiencia){
-      console.log(exp.title);
+      ////console.log(exp.title);
       creador=exp.creador;
       }
     }
@@ -250,16 +250,16 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
       }
     }
   }
-  console.log(html);
+  ////console.log(html);
   document.getElementById(listaElement).innerHTML = html;
 }
 
 
 
 function addExpToCollection(experience, coleccion){
-  console.log("Los argumentos son: ");
-  console.log(experience);
-  console.log(coleccion);
+  ////console.log("Los argumentos son: ");
+  ////console.log(experience);
+  ////console.log(coleccion);
   
   users = getUsersCookies();
   for (let i = 0; i < users.length; i++){
@@ -274,7 +274,7 @@ function addExpToCollection(experience, coleccion){
   for(var j=0; j<ec.length; j++){
     let exp=JSON.parse(ec[j]);
     if(exp.title==experience){
-      console.log(exp.title);
+      ////console.log(exp.title);
       creador=exp.creador;
     }
   }
@@ -282,7 +282,7 @@ function addExpToCollection(experience, coleccion){
   for(var z=0; z <user.collections.length; z++){
     if(user.collections[z].titulo==coleccion){
       let addExp=creador+"+"+experience;
-      console.log(addExp);
+      ////console.log(addExp);
       user.collections[z].experiences.push(addExp);
     }  
   }
@@ -407,7 +407,7 @@ function orderedUsers(users){
       userj = JSON.parse(users[j]);
       userj1 = JSON.parse(users[j+1]);
       if (userj1.likes > userj.likes){
-        console.log("entra ordered")
+        ////console.log("entra ordered")
         aux = users[j+1];
         users[j+1] = users[j];
         users[j] = aux;
@@ -494,7 +494,6 @@ function handle_login(){
     content.forEach(element => {
       result = {...result, [element.id]: element.value};
     });
-    //console.log(result['login-email']);
     // busca la cookie para el usuario
     loginemail=result['login-email'];
     var userCookie = getCookie(loginemail);
@@ -512,7 +511,7 @@ function handle_login(){
       error = document.getElementById("wrongPassword");
       error.style.display = "block";
     } else if (JSON.parse(userCookie).password == result['login-password']){
-      console.log("Successful login");
+      ////console.log("Successful login");
       if(lastPopUp == "popup-grid-item"){
         document.getElementById("popup-grid-item").style.display = "flex";
         lastPopUp = "";
@@ -530,7 +529,7 @@ function handle_login(){
         document.getElementById("ppic").src="images/perfiles/user_blanco.png";
         document.getElementById("ppicmob").src="images/perfiles/user_blanco.png";
       }else{
-        console.log(JSON.parse(userCookie).photo);
+        ////console.log(JSON.parse(userCookie).photo);
         //Aunque haya establecido una foto de perfil se pone la imagen por defecto
         document.getElementById("ppic").src="images/perfiles/"+JSON.parse(userCookie).photo;
         document.getElementById("ppicmob").src="images/perfiles/"+JSON.parse(userCookie).photo;
@@ -629,7 +628,7 @@ function handle_registration(){
         element.style.border = "";
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
-        console.log(errorMessage);
+        ////console.log(errorMessage);
         document.getElementById(errorMessage).style.display = "none";
         if(element.id == "username"){
           document.getElementById("already-registered-username").style.display = "none";
@@ -667,53 +666,53 @@ function handle_registration(){
   result["likes"] = 0;
   result["like_exp"] = [];
 
-  console.log(result);
+  ////console.log(result);
   var validated = true
   /* RELLENAR CON LLAMADAS A MÉTODOS DE VALIDACIÓN */
   if(!validateUsername(result.username)){
-    console.log("Invalid username");
+    ////console.log("Invalid username");
     document.getElementById("username").style.border = "2px solid red";
     document.getElementById("error-username").style.display = "flex";
     validated = false;
   }
   if(!validatePassword(result.password)){
-    console.log("Invalid password");
+    ////console.log("Invalid password");
     document.getElementById("password").style.border = "2px solid red";
     document.getElementById("error-password").style.display = "flex";
     validated = false;
   }
   if(!validateName(result.name)){
-    console.log("Invalid name");
+    ////console.log("Invalid name");
     document.getElementById("name").style.border = "2px solid red";
     document.getElementById("error-name").style.display = "flex";
     validated = false;
   }
   if(!validateLastname(result.lastname)){
-    console.log("Invalid lastname");
+    ////console.log("Invalid lastname");
     document.getElementById("lastname").style.border = "2px solid red";
     document.getElementById("error-lastname").style.display = "flex";
     validated = false;
   }
   if(!validateEmail(result.email)){
-    console.log("Invalid email");
+    ////console.log("Invalid email");
     document.getElementById("email").style.border = "2px solid red";
     document.getElementById("error-email").style.display = "flex";
     validated = false;
   }
   if(!validateBirthdate(result.birthdate)){
-    console.log("Invalid birthdate");
+    ////console.log("Invalid birthdate");
     document.getElementById("birthdate").style.border = "2px solid red";
     document.getElementById("error-birthdate").style.display = "flex";
     validated = false;
   }
   if(!validatePhoto(result.photo)){
-    console.log("Invalid photo");
+    ////console.log("Invalid photo");
     document.getElementById("photo").style.border = "2px solid red";
     document.getElementById("error-photo").style.display = "flex";
     validated = false;
   }
   if(!document.getElementById("terms").checked){
-    console.log("Terms and conditions not accepted");
+    ////console.log("Terms and conditions not accepted");
     document.getElementById("error-terms").innerText = "Debes aceptar nuestros términos y condiciones"
     document.getElementById("error-terms").style.display = "flex";
     validated=false;
@@ -725,12 +724,12 @@ function handle_registration(){
     //Busco que no haya un usuario con ese username
     let username_other = false;
     users = getUsersCookies();
-    console.log(result.username)
+    ////console.log(result.username)
     for (let i = 0; i < users.length; i++){
       user = JSON.parse(users[i])
-      console.log(user.username)
+      ////console.log(user.username)
       if (user.username.toLowerCase() == result.username.toLowerCase()){
-        console.log("entra")
+        ////console.log("entra")
         username_other = true;
         break;
       }
@@ -817,9 +816,9 @@ function validatePassword(password){
     return false;
   }
   let re = new RegExp('^[a-z0-9]{4,8}$');
-  console.log("LONGITUD: ", password.length);
+  ////console.log("LONGITUD: ", password.length);
   if(!re.test(password)){
-    console.log(password.length)
+    ////console.log(password.length)
     if(password.length < 4 || password.length > 8){
       document.getElementById("error-password").innerText = "Debe tener entre 4 y 8 caracteres"
     } else {
@@ -864,7 +863,7 @@ function validateEmail(email){
   }
   	
   let re = new RegExp('^[a-z0-9_.]+@[a-z0-9_]+[.][a-z0-9_]+$')
-  console.log(email);
+  ////console.log(email);
   if(!re.test(email)){
     document.getElementById("error-email").innerText = "Formato: nombre@dominio.com";
     return false;
@@ -903,7 +902,7 @@ function validateBirthdateChange(birthdate){
 
 var loggedInEmail = ""; 
 function handleNewExperience(){
-  //console.log("Email: " + loggedInEmail);
+  ////console.log("Email: " + loggedInEmail);
   content = Array.from(document.querySelectorAll('#experience-form input'));
   var result = {};
   content.forEach(element => {
@@ -930,14 +929,14 @@ function handleNewExperience(){
     // con el nuevo resultado hay que guardar la cookie con la información
     // {..., experiences: [{titulo: "", description: "", photo: ""}, {titulo: "", description: "", photo: ""}, ...], ...}
     var cookie = getCookie(loggedInEmail);
-    //console.log("PRUEBA", cookie);
+    ////console.log("PRUEBA", cookie);
     userInfo = JSON.parse(cookie);
     // cargo el array con las experiencias
     var userExperiences = userInfo.experiences;
-    //console.log(userExperiences);
+    ////console.log(userExperiences);
     // añadir nueva experiencia
     userExperiences.push({'title': result['myexp-title'],'location': result['myexp-location'],  'description': result['description'], 'photo': result['myexp-picture']});
-    //console.log(userInfo);
+    ////console.log(userInfo);
 
     setCookie(userInfo.email, JSON.stringify(userInfo), 10);
 
@@ -956,10 +955,10 @@ function handleNewExperience(){
 }
 
 function validateExperiences(result){
-  console.log("Entro a validar: ", result);
+  ////console.log("Entro a validar: ", result);
   validated = true;
   if(result['myexp-title'] == ''){
-    console.log("Title not provided");
+    ////console.log("Title not provided");
     var error = document.getElementById("error-myexp-title");
     error.style.visibility = "visible";
     error.innerText = "You must provide an experience title"
@@ -968,7 +967,7 @@ function validateExperiences(result){
     validated = false;
   }
   if(result['description'] == ''){
-    console.log("Description not provided");
+    ////console.log("Description not provided");
     var error = document.getElementById("error-new-experience-description");
     error.style.visibility = "visible";
     error.innerText = "You must provide an experience description"
@@ -977,7 +976,7 @@ function validateExperiences(result){
     validated = false;
   }
   if(result['description'].length > 140){
-    console.log("Description too long");
+    ////console.log("Description too long");
     var error = document.getElementById("error-new-experience-description");
     error.style.visibility = "visible";
     error.innerText = "can have a maximum of 140 characters"
@@ -987,7 +986,7 @@ function validateExperiences(result){
   }
   
   if(result['myexp-location'] == ''){
-    console.log("Location not provided");
+    ////console.log("Location not provided");
     var error = document.getElementById("error-myexp-location");
     error.style.visibility = "visible";
     error.innerText = "You must provide an experience location"
@@ -996,7 +995,7 @@ function validateExperiences(result){
     validated = false;
   }
   if(result['myexp-picture'] == ''){
-    console.log("Picture not provided");
+    ////console.log("Picture not provided");
     var error = document.getElementById("error-myexp-picture");
     error.style.visibility = "visible";
     error.innerText = "You must provide an experience picture"
@@ -1028,7 +1027,7 @@ function allowDelete(){
   var deleters = Array.from(document.getElementsByClassName("trash-icon"));
   if(!deleting) {
     deleters.forEach(deleter => {
-      console.log(deleter);
+      ////console.log(deleter);
       
       deleter.style.display = "block";
       
@@ -1037,7 +1036,7 @@ function allowDelete(){
     deleting = true;
   } else {
     deleters.forEach(deleter => {
-      console.log(deleter);
+      ////console.log(deleter);
       
       deleter.style.display = "none";
       
@@ -1049,7 +1048,7 @@ function allowDelete(){
 }
 /* Abre el popup para confirmar que eliminas una experiencia */
 function confirmDelete(element){
-  console.log(element);
+  ////console.log(element);
   experienceToDelete = element;
   if(deleting){
     document.getElementById("confirm-delete").style.display = "flex";
@@ -1072,7 +1071,7 @@ function closeConfirmDelete(){
   var userExperiences = userCookie.experiences;
   index = 0;
   userExperiences.forEach(experience => {
-    console.log("TITULO: ", title, "EXPERIENCIA: ", experience);
+    //console.log("TITULO: ", title, "EXPERIENCIA: ", experience);
     if(experience.title == title){
       userExperiences.splice(index, 1);
     }
@@ -1080,7 +1079,7 @@ function closeConfirmDelete(){
   });
   
   setCookie(loggedInEmail, JSON.stringify(userCookie), 10);
-  console.log("RESULTADO: ", userCookie);
+  //console.log("RESULTADO: ", userCookie);
   // actualiza el html
   document.getElementById("confirm-delete").style.display = "none";
   
@@ -1096,7 +1095,7 @@ function search(){
   let texto = document.getElementById("search-input").value;
   let contador_total = 0, contador_intereses = 0, contador_likes = 0, contador_publicaciones = 0, contador_fecha = 0;
   experiences_total = getExpCookies();
-  console.log(experiences_total.length);
+  ////console.log(experiences_total.length);
   users_total = getUsersCookies();
   experiences_valid = experiences_total;
   users_valid = users_total;
@@ -1276,7 +1275,7 @@ function search(){
   contador_total = contador_intereses + contador_likes + contador_publicaciones + contador_fecha;
   //En caso de que indique algun filtro o ponga texto
   if (contador_total != 0 || texto != ''){
-    console.log("Solo texto");
+    ////console.log("Solo texto");
     //Para el título
     document.getElementById("busqueda").innerHTML = "Búsqueda: &nbsp"+texto;
     document.getElementById("total-filtros").innerHTML = "Filtros("+contador_total+")";
@@ -1352,9 +1351,9 @@ function search(){
   document.getElementById("result-search").style.visibility = "visible";
 
   var index = 0;
-  console.log(experienceTitles);
+  //console.log(experienceTitles);
   experienceTitles.forEach(titulo => {
-    console.log(titulo);
+    //console.log(titulo);
     if(!titulo.innerHTML.toLowerCase().includes(text.toLowerCase())){
       gridItems[index].style.display = "none";
     } else {
@@ -1728,7 +1727,7 @@ function fillColor(){
   por1 = (sliderOne.value / sliderMax) * 100;
   por2 = (sliderTwo.value / sliderMax) * 100;
   sliderTrack.style.background = `linear-gradient(to right, #dadae4 ${por1}%, #0b0be6 ${por1}%, #0b0be6 ${por2}%, #dadae4 ${por2}%)`;
-  //console.log(sliderTrack.style.background);
+  ////console.log(sliderTrack.style.background);
 }
 
 //Solo permite que pongas ordenador de mayor a menor o de menor a mayor
@@ -1782,7 +1781,7 @@ function uncheckComments(){
 }
 
 function cambiarMenu(){
-  //console.log(document.getElementById("menu_nesting"));
+  ////console.log(document.getElementById("menu_nesting"));
   if(document.getElementById("menu_nesting").style.display =="block"){
     document.getElementById("menu_nesting").style.display ="none";
     document.getElementById("flechmenu").src = "images/down-arrow.png";
@@ -1897,7 +1896,7 @@ function openShare(element){
 }
 
 function closeShare(){
-  console.log("entra");
+  ////console.log("entra");
   document.getElementById("compartir-container").style.display = "none";
   document.body.style.overflowY = "visible";
   if (document.getElementById("popup-grid-item").style.display == 'flex'){
@@ -1923,7 +1922,7 @@ function openExp(element){
   }
 
   if (document.getElementById("popup-user-item").style.display == "flex"){
-    console.log("donde"+donde);
+    ////console.log("donde"+donde);
     if (donde == 'exp'){
       user = document.getElementById("user-username").innerHTML;
     }
@@ -1963,7 +1962,7 @@ function openExp(element){
   else {
     document.getElementById("popup-grid-item").style.zIndex = 100;
   }
-  console.log(user);
+  ////console.log(user);
   document.getElementById("popup-coleccion-item").style.zIndex = 90;
   document.body.style.overflowY = "hidden";
   fillPopupExp(user, title);
@@ -2029,7 +2028,7 @@ function mostrarMasMyUser(){
   document.getElementById("mostrarmenosmyuser").style.display = "flex";
   //Para los intereses
   document.getElementById("myusertopic").style.display = "flex";
-  console.log("abierto")
+  ////console.log("abierto")
 }
 function mostrarMenosMyUser(){
   document.getElementById("myuser-info-surname").style.display = "none";
@@ -2042,8 +2041,8 @@ function mostrarMenosMyUser(){
 }
 
 function fillPopupMyUser(username){
-  console.log("entra en fillpopupMyuser");
-  console.log(username);
+  ////console.log("entra en fillpopupMyuser");
+  ////console.log(username);
   let users = getUsersCookies();
   for(var i=0; i<users.length; i++){
     user=JSON.parse(users[i]);
@@ -2084,7 +2083,7 @@ function fillPopupMyUser(username){
 }
 
 function closeMyExp(){
-  //console.log(document.getElementById("myexperiences-grid"));
+  ////console.log(document.getElementById("myexperiences-grid"));
   /*if(document.getElementById("experience-form").style.display == "block"){
     openMyExp();
     document.getElementById("experience-form").style.display = "none"
@@ -2138,7 +2137,7 @@ function openMyProfile(){
 }
 
 function closeMyProfile(){
-  //console.log(document.getElementById("myexperiences-grid"));
+  ////console.log(document.getElementById("myexperiences-grid"));
   if(document.getElementById("change-profile-form").style.display == "flex"){
     document.getElementById("change-profile-form").style.display = "none"
     document.getElementById("popup-myprofile").style.display = "flex";
@@ -2158,7 +2157,7 @@ function saveChanges(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       if (element.type != "checkbox"){
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
@@ -2172,29 +2171,29 @@ function saveChanges(){
   // recorrer todos los intereses y ver si se han seleccionado
   content = Array.from(document.getElementsByClassName('changetopic'));
   content.forEach(changeint => {
-    console.log(changeint.type);
+    ////console.log(changeint.type);
     if(changeint.type == "checkbox"){
       result[changeint.id] = changeint.checked;
     }
   });
   
-  console.log(result);
+  ////console.log(result);
   var validated = true
   /* RELLENAR CON LLAMADAS A MÉTODOS DE VALIDACIÓN */
   if(!validateNameChange(result.changename)){
-    console.log("Invalid name");
+    ////console.log("Invalid name");
     document.getElementById("changename").style.border = "2px solid red";
     document.getElementById("error-changename").style.visibility = "visible";
     validated = false;
   }
   if(!validateLastnameChange(result.changelastname)){
-    console.log("Invalid lastname");
+    ////console.log("Invalid lastname");
     document.getElementById("changelastname").style.border = "2px solid red";
     document.getElementById("error-changelastname").style.visibility = "visible";
     validated = false;
   }
   if(!validateBirthdateChange(result.changebirthdate)){
-    console.log("Invalid birthdate");
+    ////console.log("Invalid birthdate");
     document.getElementById("changebirthdate").style.border = "2px solid red";
     document.getElementById("error-changebirthdate").style.visibility = "visible";
     validated = false;
@@ -2202,7 +2201,7 @@ function saveChanges(){
   //OJOOOOOOOOOOOOOOOOOOO lo debería hacer en un futuro si eso
   /*
   if(!validatePhoto(result.changephoto)){
-    console.log("Invalid photo");
+    //console.log("Invalid photo");
     document.getElementById("error-changephoto").innerText = "Please enter an image file";
     document.getElementById("changephoto").style.border = "2px solid red";
     document.getElementById("error-changephoto").style.visibility = "visible";
@@ -2210,7 +2209,7 @@ function saveChanges(){
   }*/
   
   if(validated){
-    console.log(result)
+    ////console.log(result)
     userCookie = getCookie(loginemail);
     userInfo = JSON.parse(userCookie);
     
@@ -2226,7 +2225,7 @@ function saveChanges(){
     userInfo.sports=result.myusersports;
 
     setCookie(userInfo.email, JSON.stringify(userInfo), 10);
-    console.log("todo ok guardado")
+    ////console.log("todo ok guardado")
     
     document.getElementById("snackbarbody").style.display="block";
     document.getElementById("snackbarbody").innerHTML = "Cambios guardados"
@@ -3084,7 +3083,7 @@ function fillPopupExp(user, title){
         for(let j = 0; j <exp.comments.length; j++){
 
           comment=exp.comments[j];
-          console.log(comentarios_recibidos);
+          ////console.log(comentarios_recibidos);
           comentarios_recibidos+="<div class=\"comentario\">"+
                                     "<div class=\"comentario-contenido\">"+
                                       "<div class=\"inicial-comentario\">"+comment.username[0]+"</div>"+
@@ -3101,11 +3100,11 @@ function fillPopupExp(user, title){
                                   "</div>";
         }
       }  else {
-        console.log(exp.comments.length);
+        ////console.log(exp.comments.length);
         for(let j = 0; j <exp.comments.length; j++){
 
           comment=exp.comments[j];
-          console.log(comentarios_recibidos);
+          ////console.log(comentarios_recibidos);
           comentarios_recibidos+="<div class=\"comentario\">"+
                                     "<div class=\"comentario-contenido\">"+
                                       "<div class=\"inicial-comentario\">"+comment.username[0]+"</div>"+
@@ -3214,7 +3213,7 @@ function openGalleryViewer(element){
       
       img=ap[i].split(">");
       let imgpath= img[0];
-      console.log(img[0]);
+      ////console.log(img[0]);
       document.getElementById("viewer-picture").src=img[0];
     } 
   }
@@ -3240,13 +3239,13 @@ function closeViewer(){
   let pic=document.getElementById("viewer-picture").src;
   let picsplit=pic.split("/");
   pic=picsplit.pop();
-  console.log(pic);
+  ////console.log(pic);
   let ce=getExpCookies();
   for(let i=0; i<ce.length; i++){
     let exp=JSON.parse(ce[i]);
     if (exp.gallery.includes(pic)){
       for(let i=1; i<exp.gallery.length; i++){
-        console.log(idpic+i);
+       // //console.log(idpic+i);
         document.getElementById(idpic+i).style.border="none";
       }
     }
@@ -3259,15 +3258,15 @@ function pasaratras(){
   let pic=document.getElementById("viewer-picture").src;
   let picsplit=pic.split("/");
   pic=picsplit.pop();
-  console.log(pic);
+  ////console.log(pic);
   let ce=getExpCookies();
   for(let i=0; i<ce.length; i++){
     let exp=JSON.parse(ce[i]);
     if (exp.gallery.includes(pic)){
-      console.log(exp.gallery.indexOf(pic));
+      ////console.log(exp.gallery.indexOf(pic));
       let index=exp.gallery.indexOf(pic);
       let indexnewpic=index-1;
-      console.log(indexnewpic);
+      ////console.log(indexnewpic);
       if(indexnewpic==-1){
         indexnewpic=exp.gallery.length-1;
       }//Si era la primera, va a la última.
@@ -3283,15 +3282,15 @@ function pasarsiguiente(){
   let pic=document.getElementById("viewer-picture").src;
   let picsplit=pic.split("/");
   pic=picsplit.pop();
-  console.log(pic);
+  ////console.log(pic);
   let ce=getExpCookies();
   for(let i=0; i<ce.length; i++){
     let exp=JSON.parse(ce[i]);
     if(exp.gallery.includes(pic)){
-      console.log(exp.gallery.indexOf(pic));
+      ////console.log(exp.gallery.indexOf(pic));
       let index=exp.gallery.indexOf(pic);
       let indexnewpic=index+1;
-      console.log(indexnewpic);
+      ////console.log(indexnewpic);
       if(indexnewpic==exp.gallery.length){
         indexnewpic=0;
       }//Si era la primera, va a la última.
@@ -3399,26 +3398,26 @@ function Like(element){
     }
     if (document.getElementById("user-username")){
       email = document.getElementById("email-user").innerHTML;
-      console.log(email);
+      ////console.log(email);
       if (document.getElementById("selector-experiencias").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-        console.log("exp")
+        ////console.log("exp")
         fillPopupUserExperience(email);
       }
       if (document.getElementById("selector-colaboraciones").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-        console.log("colab")
+        ////console.log("colab")
         fillPopupUserColabs(email);
       }
       //Mis experiencias
       if (document.getElementById("tab-experiences-button")){
         if (document.getElementById("popup-myexp").style.display == "flex" && document.getElementById("tab-experiences-button").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-          console.log("en my experiences");
+          ////console.log("en my experiences");
           loadMyExperiences(loggedInEmail);
         }
       }
       //Mis colaboraciones
       if (document.getElementById("tab-collaborations-button")){
         if (document.getElementById("popup-myexp").style.display == "flex" && document.getElementById("tab-collaborations-button").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-          console.log("en my collaborations");
+          ////console.log("en my collaborations");
           loadMyCollaboration(loggedInEmail);
         }
       }
@@ -3436,7 +3435,7 @@ function Like(element){
 
 function LikeOut(element){
   //Si esta registrado te deja dar like. Si no. No
-  console.log(element);
+  ////console.log(element);
   if(document.getElementById("account-li-login").style.display=="none"){
     let user="";
     let title = document.getElementById(element.id);
@@ -3444,36 +3443,36 @@ function LikeOut(element){
     if(element.id.includes("user")){
       if (document.getElementById("popup-user-item").style.display == "flex"){
         user=document.getElementById("user-username").innerText;
-        console.log("estas en user estanda");
-        console.log(user);
+        ////console.log("estas en user estanda");
+        ////console.log(user);
       }
       else {
         user = document.getElementById("changeuser-username").innerText;
-        console.log("en editar");
+        ////console.log("en editar");
       }
       title = title.id.slice(18);
       if (document.getElementById("popup-coleccion-item").style.display == "flex"){
         title = title.slice(6);
         user = document.getElementById("creador"+title).innerText.slice(5);
-        console.log(user);
+        ////console.log(user);
       }
-      console.log(title);
-      console.log(user);
+      ////console.log(title);
+      ////console.log(user);
     }
     else if (element.id.includes("colab")){
-      console.log("entra en colab");
+      ////console.log("entra en colab");
       title = title.id.slice(19);
-      console.log(title);
-      console.log(document.getElementById("colab-"+title).innerHTML);
+      ////console.log(title);
+      ////console.log(document.getElementById("colab-"+title).innerHTML);
       user = document.getElementById("colab-"+title).innerHTML.slice(6);
-      console.log(user);
+      ////console.log(user);
     }
     else{
       title = title.id.slice(13);
-      console.log(title);
+      ////console.log(title);
       user = document.getElementById("creador"+title).innerHTML;
       user = user.slice(8, -4);
-      console.log(user);
+      ////console.log(user);
     }
     
     let experiences=getExpCookies();
@@ -3504,7 +3503,7 @@ function LikeOut(element){
           }
 
           
-          console.log(title);
+          ////console.log(title);
           setCookie(user+"+"+title, JSON.stringify(exp), 10); 
           let likexp={
             user: user,
@@ -3519,7 +3518,7 @@ function LikeOut(element){
               actualuser.like_exp.push(likexp)
             }
           }
-          console.log(actualuser.like_exp);
+          ////console.log(actualuser.like_exp);
           setCookie(actualuser.email, JSON.stringify(actualuser), 10); 
         }
         else{
@@ -3553,17 +3552,17 @@ function LikeOut(element){
               }
             }
           }
-          console.log(actualuser.like_exp);
+          ////console.log(actualuser.like_exp);
           setCookie(actualuser.email, JSON.stringify(actualuser), 10); 
 
           if (document.getElementById("exp-like-icon-user-colec"+title)){
-            console.log("entra al de la colec")
+            ////console.log("entra al de la colec")
             //Estoy con que desde colec no funciona bien el like desde fuera
             document.getElementById("exp-like-icon-user-colec"+title).src="images/iconos/heart-regular-24.png";
             document.getElementById("exp-likes-user-colec"+title).innerHTML = exp.likes;
           }
         }
-        console.log("exp-likes"+title);
+        ////console.log("exp-likes"+title);
         
         if(element.id.includes("user")){
           if (element.id.includes("colec")){
@@ -3603,8 +3602,8 @@ function preComment (element){
       title = title.id.slice(16);
       let user = document.getElementById("creador"+title).innerHTML;
       user = user.slice(8, -4);
-      console.log(title);
-      console.log(user);
+      ////console.log(title);
+      ////console.log(user);
 
       fillPopupExp(user, title);
       //Para que se ponga bien delante siempre
@@ -3668,7 +3667,7 @@ function comentar(){
       let myuser=JSON.parse(uc[i]);
       if(myuser.email==loggedInEmail){
         myusername=myuser.username;
-        console.log(myusername);
+        ////console.log(myusername);
       }
     }
     let text=document.getElementById("add-comment").value;
@@ -3685,23 +3684,23 @@ function comentar(){
         replay: []
       }
 
-      console.log(comment);
+      ////console.log(comment);
 
       let title = document.getElementById("experience-title").innerText;
-      console.log(title);
+      ////console.log(title);
       let user = document.getElementById("persona").innerText;
       let experiences=getExpCookies();
       for(var i=0; i<experiences.length; i++){
         exp=JSON.parse(experiences[i]);
         if(exp.creador==user && exp.title==title){
-          console.log("Estoy aquí")
-            console.log("El tamaño de los comentarios antes es ");
-            console.log(exp.comments.length);
+          ////console.log("Estoy aquí")
+            ////console.log("El tamaño de los comentarios antes es ");
+            ////console.log(exp.comments.length);
             exp.comments.push(comment);
-            console.log(comment);
-            console.log("El tamaño de los comentarios despues es ");
-            console.log(exp.comments.length);
-            console.log(user+"+"+title);
+            ////console.log(comment);
+            ////console.log("El tamaño de los comentarios despues es ");
+            ////console.log(exp.comments.length);
+            ////console.log(user+"+"+title);
             setCookie(user+"+"+title, JSON.stringify(exp), 10); 
             //Lo mostramos en el código:
             document.getElementById("add-comment").value="";
@@ -3728,7 +3727,7 @@ function comentar(){
 
 
           if(document.getElementById("selector-experiencias").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-            console.log("está en selector.experiencias");
+            ////console.log("está en selector.experiencias");
             document.getElementById("exp-comments-user"+title).innerText = exp.comments.length;
           }
           if (document.getElementById("popexp-comments")){
@@ -3739,7 +3738,7 @@ function comentar(){
             if (document.getElementById("selector-colaboraciones").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%" ||
             document.getElementById("popup-coleccion-item").style.display == "flex" || document.getElementById("tab-collaborations-button").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%" 
             || document.getElementById("tab-experiences-button").style.background == "rgb(72, 61, 139) none repeat scroll 0% 0%"){
-              console.log("aquiiiiiiiiiii");
+              ////console.log("aquiiiiiiiiiii");
               document.getElementById("exp-comments-t"+title).innerText = exp.comments.length;
             }
           }   
@@ -3861,13 +3860,13 @@ function responder(posicion){
     }
 
     let title = document.getElementById("experience-title").innerText;
-    console.log(title);
+    ////console.log(title);
     let user = document.getElementById("persona").innerText;
     let experiences=getExpCookies();
     for(var i=0; i<experiences.length; i++){
       exp=JSON.parse(experiences[i]);
       if(exp.creador==user && exp.title==title){
-        console.log("Estoy aquí")
+        ////console.log("Estoy aquí")
           exp.comments[posicion].replay.push(reply);
           setCookie(user+"+"+title, JSON.stringify(exp), 10); 
           //Lo mostramos en el código:
@@ -3885,7 +3884,7 @@ function responder(posicion){
                                       "</div>"+
                                     "</div>";
                                     
-            //console.log(comentarios_recibidos);
+            ////console.log(comentarios_recibidos);
           }
 
           document.getElementById("respuesta-comentario"+posicion).innerHTML=respuestas_recibidas;
@@ -3913,7 +3912,7 @@ function openUser(element){
   for (var i=0; i<html.length; i++){
     if (html[i].indexOf("h3>") == 0) {
       username= html[i].substring(3, html[i].length);
-      console.log(username);
+      ////console.log(username);
     }
   }
   document.getElementById("popup-user-item").style.zIndex = 80;
@@ -4013,7 +4012,7 @@ function changePestanaUser(element){
     document.getElementById("selector-colaboraciones").style.borderBottomRightRadius = "20px";
 
     //Cargar las colecciones del usuario
-    //console.log(document.getElementById("email-user").innerHTML);
+    ////console.log(document.getElementById("email-user").innerHTML);
     fillPopupUserCollection(document.getElementById("email-user").innerHTML);
   }
   if (pestana.id == "selector-experiencias"){
@@ -4226,7 +4225,7 @@ function menuListaAnadeMyColeccion(listaElement, nombreExperiencia){
   for(var j=0; j<ec.length; j++){
     let exp=JSON.parse(ec[j]);
     if(exp.title==nombreExperiencia){
-      console.log(exp.title);
+      ////console.log(exp.title);
       creador=exp.creador;
       }
     }
@@ -4256,15 +4255,15 @@ function menuListaAnadeMyColeccion(listaElement, nombreExperiencia){
       }
     }
   }
-  console.log(html);
-  console.log(listaElement);
+  ////console.log(html);
+  ////console.log(listaElement);
   document.getElementById(listaElement).innerHTML = html;
 }
 
 function addExpToMyCollection(experience, coleccion){
-  console.log("Los argumentos son: ");
-  console.log(experience);
-  console.log(coleccion);
+  ////console.log("Los argumentos son: ");
+  ////console.log(experience);
+  ////console.log(coleccion);
   
   users = getUsersCookies();
   for (let i = 0; i < users.length; i++){
@@ -4279,7 +4278,7 @@ function addExpToMyCollection(experience, coleccion){
   for(var j=0; j<ec.length; j++){
     let exp=JSON.parse(ec[j]);
     if(exp.title==experience){
-      console.log(exp.title);
+      ////console.log(exp.title);
       creador=exp.creador;
     }
   }
@@ -4287,7 +4286,7 @@ function addExpToMyCollection(experience, coleccion){
   for(var z=0; z <user.collections.length; z++){
     if(user.collections[z].titulo==coleccion){
       let addExp=creador+"+"+experience;
-      console.log(addExp);
+      ////console.log(addExp);
       user.collections[z].experiences.push(addExp);
     }  
   }
@@ -4299,7 +4298,7 @@ function addExpToMyCollection(experience, coleccion){
 
   } else {
     document.getElementById("menu-ul-mycolec"+experience).innerHTML="";
-    console.log("menu-ul-pop"+experience);
+    ////console.log("menu-ul-pop"+experience);
     document.getElementById("menu-ul-pop"+experience).style.display = "none";
   }
   
@@ -4393,8 +4392,8 @@ function fillPopupUserColabs(email) {
 
   if(loggedInEmail != ""){
     Array.from(myexperiencesGrid.childNodes).forEach(experience => {
-      console.log(experience.childNodes[2].childNodes[2].childNodes[2].childNodes[1].childNodes[1]);
-      console.log(experience.childNodes[0].childNodes[1].innerText)
+      ////console.log(experience.childNodes[2].childNodes[2].childNodes[2].childNodes[1].childNodes[1]);
+      ////console.log(experience.childNodes[0].childNodes[1].innerText)
       experience.childNodes[2].childNodes[2].childNodes[2].childNodes[1].childNodes[1].addEventListener("mouseenter", function(event){
         tituloExperiencia = experience.childNodes[0].childNodes[1].innerText;
         menuListaAnadeMyColeccion("menu-ul-mycolec"+ tituloExperiencia, tituloExperiencia)
@@ -4541,9 +4540,9 @@ function buildTotalExperiences(experiences){
   let src_t="images/iconos/mg.png";
   if(loggedInEmail!=""){
     if(doILike(exp.creador, exp.title)==true){
-      console.log("he dado mg");
+      ////console.log("he dado mg");
       src_t="images/iconos/heart-solid-24.png";
-      console.log(src_t);
+      ////console.log(src_t);
     }
   }
     experiencesGrid+= "<div class=\"grid-item\">"+
@@ -4589,12 +4588,12 @@ function buildTotalExperiences(experiences){
                       "</div>"+
                     "</div>";
   }
-  //console.log(experiencesGrid);
+  ////console.log(experiencesGrid);
 
   myexperiencesGrid = document.getElementById("initial-experiences-grid");
   myexperiencesGrid.innerHTML = experiencesGrid;
 
-  console.log("USUARIO: " + loggedInEmail);
+  ////console.log("USUARIO: " + loggedInEmail);
   if(loggedInEmail != ""){
     Array.from(myexperiencesGrid.childNodes).forEach(experience => {
       experience.childNodes[0].childNodes[3].childNodes[1].childNodes[1].addEventListener("mouseenter", function(event){
@@ -4624,13 +4623,13 @@ function closeMoreOpPopup(element) {
 }
 
 function collectionMenuOptions(element){
-  console.log("menu-ul-pop"+element.id.substring(element.id.length -1));
+  ////console.log("menu-ul-pop"+element.id.substring(element.id.length -1));
   document.getElementById("menu-ul-pop"+element.id.substring(element.id.length -1)).style.display = "flex";
 }
 
 function closeCollectionMenuOptions(element){
   let idTresPuntos = document.getElementById(element.id);
-  console.log("menu-ul-pop"+idTresPuntos.id.slice(12))
+  ////console.log("menu-ul-pop"+idTresPuntos.id.slice(12))
   document.getElementById("menu-ul-pop"+idTresPuntos.id.slice(13)).style.display = "none";
 }
 
@@ -4734,7 +4733,7 @@ function savePlanificar(){
     validated = false;
   }
   if(!validateEmailPlan(document.getElementById("plan-email").value)){
-    console.log("Invalid email");
+    ////console.log("Invalid email");
     document.getElementById("plan-email").style.border = "2px solid red";
     document.getElementById("error-plan-email").style.visibility = "visible";
     validated = false;
@@ -4756,7 +4755,7 @@ function validateEmailPlan(email){
   }
   	
   let re = new RegExp('^[a-z0-9_.]+@[a-z0-9_]+[.][a-z0-9_]+$')
-  console.log(email);
+  ////console.log(email);
   if(!re.test(email)){
     document.getElementById("error-plan-email").innerText = "Formato: nombre@dominio.com";
     return false;
@@ -4775,7 +4774,7 @@ function resetPlanificar(){
       element.style.border = "";
       // quita el mensaje de error
       let errorMessage = "error-" + element.id;
-      console.log(errorMessage);
+      ////console.log(errorMessage);
       document.getElementById(errorMessage).style.visibility = "hidden";
       if(errorMessage == "error-plan-presupuesto"){all = true}
     }
@@ -4787,7 +4786,7 @@ function resetPlanificar(){
   descripcion.style.border = "";
     // quita el mensaje de error
   let errorMessage = "error-" + descripcion.id;
-  console.log(errorMessage);
+  ////console.log(errorMessage);
   document.getElementById(errorMessage).style.visibility = "hidden";
 
   //Email
@@ -4796,7 +4795,7 @@ function resetPlanificar(){
   email.style.border = "";
     // quita el mensaje de error
   errorMessage = "error-" + email.id;
-  console.log(errorMessage);
+  ////console.log(errorMessage);
   document.getElementById(errorMessage).style.visibility = "hidden";
 }
 
@@ -4804,7 +4803,7 @@ function resetPlanificar(){
 /* CHAT */
 function changeChatState(){
   var display = document.getElementById("conversacion-container").style.display;
-  console.log(display);
+  ////console.log(display);
   if(display == "none"){
     document.getElementById("conversacion-container").style.display = "flex";
     document.getElementById("chats-recientes").style.display = "none";
@@ -4875,7 +4874,7 @@ function loadRecentConversations(){
       if(namesInConversation.includes(loggedinUsername)){
         namesInConversation.forEach(name => {
           if(name != loggedinUsername && conversation.conversation.length != 0){
-            console.log(conversation.id);
+            ////console.log(conversation.id);
             photo = '';
             users = getUsersCookies();
             for (let x = 0; x < users.length; x++){
@@ -4909,7 +4908,7 @@ function openConversation(conversationID){
   document.getElementById("lista-busqueda-chat").style.display = "none";
 
 
-  console.log(conversationID);
+  ////console.log(conversationID);
   var loggedinCookie = JSON.parse(getCookie(loggedInEmail));
   var loggedinUsername = loggedinCookie.username;
 
@@ -4924,7 +4923,7 @@ function openConversation(conversationID){
   } else {
     conversation = JSON.parse(conversation).conversation;
   }
-  console.log(conversation);
+  ////console.log(conversation);
 
   // La plantilla para las conversaciones es:
   //{id: "id-conversacion", conversacion: [{mensaje: , emisor:  , fecha: }, ...]}
@@ -4992,7 +4991,7 @@ function fillMessageRight(text){
 }
 
 function enviarMensaje(){
-  //console.log(document.getElementById("new-message").value);
+  ////console.log(document.getElementById("new-message").value);
   // recupera información necesaria
   var loggedinCookie = JSON.parse(getCookie(loggedInEmail));
   var loggedinUsername = loggedinCookie.username;
@@ -5007,7 +5006,7 @@ function enviarMensaje(){
 
   conversation.push({"message": message, "sender": loggedinUsername, "date": new Date().getTime()})
 
-  console.log(conversation);
+  ////console.log(conversation);
   conversationCookie.conversation = conversation;
 
   // elimina el texto de la caja para escribir
@@ -5087,13 +5086,13 @@ function searchChat(){
   var loggedinUsername = loggedinCookie.username;
   // obtiene el texto a buscar
   var searchUser = document.querySelector("#search-chat-input").value;
-  console.log(searchUser);
+  ////console.log(searchUser);
   
   // obtiene todas las cookies
   var allCookies = document.cookie.split(";");
   // filtra para obtener sólo las de las de los usuarios
   let re = new RegExp('^[a-z0-9_.]+@[a-z0-9_]+[.][a-z0-9_]+$');
-  console.log(allCookies);
+  //////console.log(allCookies);
 
   userChatList = [];
   numCoincidencias = 0;
@@ -5105,7 +5104,7 @@ function searchChat(){
     if(re.test(cookiename)){
       // comprobar que el texto buscado hace coincidencia con el usuario
       username = JSON.parse(cookie.split("=")[1]).username;
-      console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
+      //////console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
       if(username.toLowerCase().includes(searchUser.toLowerCase()) && 
       cookiename.toLowerCase() != loggedInEmail){
         // obtener el username del resultado
@@ -5148,7 +5147,7 @@ function searchColab(){
   var loggedinUsername = loggedinCookie.username;
   // obtiene el texto a buscar
   var searchUser = document.querySelector("#search-colab-input").value;
-  console.log(searchUser);
+  //////console.log(searchUser);
   
   // obtiene todas las cookies
   var allCookies = document.cookie.split(";");
@@ -5166,7 +5165,7 @@ function searchColab(){
     if(re.test(cookiename)){
       // comprobar que el texto buscado hace coincidencia con el usuario
       username = JSON.parse(cookie.split("=")[1]).username;
-      console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
+      ////console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
       if(username.toLowerCase().includes(searchUser.toLowerCase()) && 
       cookiename.toLowerCase() != loggedInEmail){
         // comprobar que el resultado no esté ya añadido
@@ -5182,7 +5181,7 @@ function searchColab(){
     }
   });
 
-  console.log(userColabList);
+  ////console.log(userColabList);
 
   var resultsHTML = "";
   userSelected = "";
@@ -5379,7 +5378,7 @@ function loadMyCollections(email) {
                                       "</div>"+
                               "</div>"+
                           "</div>";
-        console.log(user.collections[j].titulo);
+        ////console.log(user.collections[j].titulo);
         
       }
     } 
@@ -5408,11 +5407,11 @@ function saveCreateColeccion(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       if (element.type != "checkbox"){
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
-        console.log(errorMessage);
+        ////console.log(errorMessage);
         document.getElementById(errorMessage).style.display = "none";
       }
     });
@@ -5427,7 +5426,7 @@ function saveCreateColeccion(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       // quita el mensaje de error
       let errorMessage = "error-" + element.id;
       document.getElementById(errorMessage).style.display = "none";
@@ -5482,7 +5481,7 @@ function saveCreateColeccion(){
     newCollection.descripcion = result.crear_coleccion_descripcion;
   }
 
-  console.log(result);
+  ////console.log(result);
 
   if (validated){
     user = getCookie(loginemail);
@@ -5497,9 +5496,9 @@ function saveCreateColeccion(){
     }
 
     if (!existe){
-      console.log(newCollection);
+      ////console.log(newCollection);
       user.collections.push(newCollection);
-      console.log(user);
+      ////console.log(user);
       setCookie(loggedInEmail, JSON.stringify(user), 10); 
       closeCrearColeccion();
 
@@ -5692,9 +5691,9 @@ function resetCollections(user){
     //Ahora me meto a las experiencias de esa coleccion
     for (let j = 0; j < user.collections[i].experiences.length; j++){
       existeCookie = getCookie(user.collections[i].experiences[j]);
-      console.log(user.collections[i].experiences[j]);
+      ////console.log(user.collections[i].experiences[j]);
       if (existeCookie == ""){
-        console.log("borra la experiencia esa")
+        ////console.log("borra la experiencia esa")
         //Significa que la han borrado la experiencia
         user.collections[i].experiences.splice(j,1);
       }
@@ -5717,8 +5716,8 @@ function openEditExperience(user, title){
 }
 
 function fillEditExperience(username, title){
-  console.log("entra en fillEditExperince");
-  console.log(username);
+  ////console.log("entra en fillEditExperince");
+  ////console.log(username);
   let experiences = getExpCookies();
   document.getElementById("lista-colab-exp").innerHTML = ""
 
@@ -5750,8 +5749,8 @@ function fillEditExperience(username, title){
 
       //Para poner los colaboradores que ya tiene
       colabs = exp.colaborador.split(" ");
-      console.log(colabs[0]);
-      console.log(colabs.length);
+      ////console.log(colabs[0]);
+      ////console.log(colabs.length);
       users = getUsersCookies();
       for (let j = 0; j < colabs.length; j++){
         for (let z = 0; z < users.length; z++){
@@ -5793,9 +5792,9 @@ function fillEditExperience(username, title){
 function borrarGaleria(exp, posicion){
   expBuena = getCookie(exp);
   expBuena = JSON.parse(expBuena);
-  console.log(posicion);
+  ////console.log(posicion);
   expBuena.gallery.splice(posicion, 1);
-  console.log(expBuena.gallery);
+  ////console.log(expBuena.gallery);
 
   if (expBuena.gallery.length == 0){
     expBuena.gallery.push("NoImage.jpg");
@@ -5837,9 +5836,9 @@ function fillEditCollection(title, username){
         if (user.collections[j].titulo == title){
           //Estoy en la coleccion, necesito guardar todas las experiencias que contiene
           document.getElementById("popcolec-edit-portada").src = user.collections[j].portada;
-          console.log(user.collections[j].portada);
+          ////console.log(user.collections[j].portada);
           document.getElementById("colec-title-edit").innerHTML = user.collections[j].titulo;
-          console.log(user.collections[j].descripcion);
+          ////console.log(user.collections[j].descripcion);
           document.getElementById("editar_colec_descripcion").value=user.collections[j].descripcion;
           document.getElementById("popcolec-coleccion-edit").innerHTML=user.collections[j].experiences.length;
         }
@@ -5852,9 +5851,9 @@ function fillEditCollection(title, username){
 }
   
 function fillEditCollectionExperiences(title, username){
-  console.log("Estoy aquí filleditcollectionexperiences")
-  console.log(username);
-  console.log(title);
+  ////console.log("Estoy aquí filleditcollectionexperiences")
+  ////console.log(username);
+  ////console.log(title);
   let users = getUsersCookies();
   experienceGrid = '';
   for(var i=0; i<users.length; i++){
@@ -5864,7 +5863,7 @@ function fillEditCollectionExperiences(title, username){
       for (let j = 0; j < user.collections.length; j++){
         if (user.collections[j].titulo == title){
           //Busco las experiencias
-          console.log("usuario y exp encontrados");
+          ////console.log("usuario y exp encontrados");
           let experiences = getExpCookies();
           for (let k = 0; k < experiences.length; k++){
             exp = JSON.parse(experiences[k]);
@@ -5930,7 +5929,7 @@ function fillEditCollectionExperiences(title, username){
 let id_deleteExp="";
 function openConfirmDeleteExperienceCollection(id){
 
-  console.log(id);
+  ////console.log(id);
   id_deleteExp=id;
   document.getElementById("deleteExpColecc").style.display = "flex";
 }
@@ -5956,7 +5955,7 @@ function guardarCambiosEditColecc(){
     result = {...result, [element.id]: element.value};
   });
 
-  console.log(result);
+  ////console.log(result);
 
   validated = true;
   if (result.editar_colec_descripcion == ""){
@@ -5995,22 +5994,22 @@ function guardarCambiosEditColecc(){
 function handle_deleteExpColecc(){
   let id=id_deleteExp;
   let collectiontitle= document.getElementById("colec-title-edit").innerHTML;
-  console.log(collectiontitle);
+  ////console.log(collectiontitle);
   let users = getUsersCookies();
   for(var i=0; i<users.length; i++){
     user=JSON.parse(users[i]);
     if(user.email == loggedInEmail){
-      console.log("Estoy aquí 2");
+      ////console.log("Estoy aquí 2");
       for(var j=0; j<user.collections.length; j++){
         if(user.collections[j].titulo==collectiontitle){
-          console.log(user.collections[j].experiences.length);
+          ////console.log(user.collections[j].experiences.length);
           for(var z=0; z<user.collections[j].experiences.length; z++){
-            console.log(user.collections[j].experiences[z]);
-            console.log(id);
+            ////console.log(user.collections[j].experiences[z]);
+            ////console.log(id);
             if(user.collections[j].experiences[z]==id){
-              console.log("He llegado");
+              ////console.log("He llegado");
               user.collections[j].experiences.splice(z, 1);
-              console.log(user.collections[j].experiences);
+              ////console.log(user.collections[j].experiences);
               setCookie(user.email, JSON.stringify(user), 10);
               fillEditCollectionExperiences(user.collections[j].titulo, user.username);
             }
@@ -6097,7 +6096,7 @@ function searchColabExp(){
   var loggedinUsername = loggedinCookie.username;
   // obtiene el texto a buscar
   var searchUser = document.querySelector("#search-colab-exp-input").value;
-  console.log(searchUser);
+  ////console.log(searchUser);
   
   // obtiene todas las cookies
   var allCookies = document.cookie.split(";");
@@ -6115,7 +6114,7 @@ function searchColabExp(){
     if(re.test(cookiename)){
       // comprobar que el texto buscado hace coincidencia con el usuario
       username = JSON.parse(cookie.split("=")[1]).username;
-      console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
+      ////console.log(cookiename.toLowerCase() + " --- " + loggedInEmail);
       if(username.toLowerCase().includes(searchUser.toLowerCase()) && cookiename.toLowerCase() != loggedInEmail){
         // comprobar que el resultado no esté ya añadido
         addedColabs = document.getElementById("lista-colab-exp").innerHTML.toLowerCase()
@@ -6130,7 +6129,7 @@ function searchColabExp(){
     }
   });
 
-  console.log(userColabList);
+  ////console.log(userColabList);
 
   var resultsHTML = "";
   userSelected = "";
@@ -6160,7 +6159,7 @@ function searchColabExp(){
 }
 
 function addColabExp(element, username, photo){
-  console.log(element);
+  ////console.log(element);
   document.getElementById("lista-colab-exp").innerHTML += "<li class=\"lista-recientes-item\">" + "<div class=\"user-reciente-foto\">"+"<img src=\"images/perfiles/"+photo+"\">"+
                                                       "</div><div class=\"user-reciente-info\">" + "<h4>"+username+"</h4><p>"+"</p></div>"+
                                                       "<div class=\"remove-colab-search\" onclick=\"removeCollaboratorExpSearch('"+username+"')\"><img src=\"images/iconos/x.png\" alt=\"eliminar\"></div></li>";
@@ -6206,7 +6205,7 @@ function saveChangesExp(){
       if (element.id == "error-crear_exp_gasto" || element.id == "editar_exp_descripcion"){
         // quita el borde rojo
         element.style.border = "";
-        console.log(element);
+        ////console.log(element);
         if (element.type != "checkbox"){
           // quita el mensaje de error
           let errorMessage = "error-" + element.id;
@@ -6226,11 +6225,11 @@ function saveChangesExp(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       if (element.type != "checkbox" && element.id != "search-colab-input"){
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
-        console.log(errorMessage);
+        ////console.log(errorMessage);
         document.getElementById(errorMessage).style.display = "none";
       }
     });
@@ -6249,7 +6248,7 @@ function saveChangesExp(){
   // recorrer todos los intereses y ver si se han seleccionado
   content = Array.from(document.getElementsByClassName('editar-topic'));
   content.forEach(changeint => {
-    console.log(changeint.type);
+    ////console.log(changeint.type);
     if(changeint.type == "checkbox"){
       result[changeint.id] = changeint.checked;
     }
@@ -6262,7 +6261,7 @@ function saveChangesExp(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       if (element.type != "checkbox"){
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
@@ -6272,12 +6271,12 @@ function saveChangesExp(){
     // guarda el dato
     result = {...result, [element.id]: element.value};
   });
-  console.log(result);
+  ////console.log(result);
 
   //Encuentro la experiencia sobre la que estas haciendo cambios
   title = document.getElementById("editar_experience_title").innerHTML;
   user = document.getElementById("editar_persona").innerHTML;
-  console.log (title +"+"+ user);
+  ////console.log (title +"+"+ user);
   exp = getCookie(user+"+"+title);
   if (exp != ""){
     exp = JSON.parse(exp);
@@ -6334,7 +6333,7 @@ function saveChangesExp(){
       exp.gallery.push(arrayFileNames[i]);
     }
 
-    console.log(exp);
+    ////console.log(exp);
     nombreCookie=exp.creador+"+"+exp.title;
     setCookie(nombreCookie, JSON.stringify(exp), 10); 
 
@@ -6421,7 +6420,7 @@ function borrar_imagen_exp_gallery(){
 
 function saveMyExpNew(){
   content = Array.from(document.querySelectorAll('#crear-exp-form input'));
-  console.log(content);
+  ////console.log(content);
   result = {};
   arrayFileNames = []
   content.forEach(element => {
@@ -6429,11 +6428,11 @@ function saveMyExpNew(){
     element.addEventListener('focus', function(){
       // quita el borde rojo
       element.style.border = "";
-      console.log(element);
+      ////console.log(element);
       if (element.type != "checkbox" && element.id != "search-colab-input"){
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
-        console.log(errorMessage);
+        ////console.log(errorMessage);
         document.getElementById(errorMessage).style.display = "none";
       }
     });
@@ -6449,7 +6448,7 @@ function saveMyExpNew(){
     }
   });
 
-  //console.log(arrayFileNames);
+  ////console.log(arrayFileNames);
   //Añado los text area
   content = Array.from(document.querySelectorAll('#crear-exp-form textarea'));
   content.forEach(element => {
@@ -6458,7 +6457,7 @@ function saveMyExpNew(){
       if(element.id == "crear_exp_descripcion"){
         // quita el borde rojo
         element.style.border = "";
-        console.log(element);
+        ////console.log(element);
         // quita el mensaje de error
         let errorMessage = "error-" + element.id;
         document.getElementById(errorMessage).style.display = "none";
@@ -6471,7 +6470,7 @@ function saveMyExpNew(){
   // recorrer todos los intereses y ver si se han seleccionado
   content = Array.from(document.getElementsByClassName('interest-newexp'));
   content.forEach(changeint => {
-    console.log(changeint.type);
+    ////console.log(changeint.type);
     if(changeint.type == "checkbox"){
       result[changeint.id] = changeint.checked;
     }
@@ -6565,7 +6564,7 @@ function saveMyExpNew(){
     //Como todo está bien relleno los campos que faltan
     user = getCookie(loginemail);
     user = JSON.parse(user);
-    console.log(user);
+    ////console.log(user);
     newExp.creador = user.username;
     let hoy = new Date().toISOString().split('T')[0]; 
     newExp.fecha = hoy;
@@ -6757,8 +6756,8 @@ let experiences = getExpCookies();
 
       //Para poner los colaboradores que ya tiene
       colabs = exp.colaborador.split(" ");
-      console.log(colabs[0]);
-      console.log(colabs.length);
+      ////console.log(colabs[0]);
+      ////console.log(colabs.length);
       users = getUsersCookies();
       for (let j = 0; j < colabs.length; j++){
         for (let z = 0; z < users.length; z++){
@@ -6919,8 +6918,8 @@ var gallery = $('.gallery a').simpleLightbox({
 
 function colorLikesExp(){
   let html=document.getElementById("initial-experiences-grid").innerHTML.split("<h3>");
-  //console.log(html);
-  //console.log(html);
+  ////console.log(html);
+  ////console.log(html);
   let user, title;
   let users=[];
   let titles=[];

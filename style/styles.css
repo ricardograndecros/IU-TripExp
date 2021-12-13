@@ -5208,6 +5208,12 @@ input[type="range"]:active::-moz-range-thumb{
     }
 }
 
+@media only screen and (max-width: 520px){
+    #ranking-completo{
+        width: 300px;
+    }
+}
+
 @media only screen and (max-width: 475px){
     #search-input{
         margin-top: 41px;

@@ -243,7 +243,7 @@ h2{
 }
 /* Set a style for the submit/login button */
 .logout-buttons .btn{
-    background-color: #04AA6D;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -367,7 +367,7 @@ h2{
 }
 /* Set a style for the submit/login button */
 .login-form .btn {
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -1144,7 +1144,7 @@ h2{
 }
 
 #boton-aplicar{
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     border-bottom-right-radius: 10px;
     width: 100%;
 }
@@ -1517,13 +1517,13 @@ input[type="range"]:active::-moz-range-thumb{
     height: 2px;
     width: 200px;  
     margin-left: 20px;
-    background-color: rgb(0, 0, 0, 0.0);
 }
 .grid-line p{
     margin-top: 5px;
     font-size: 17px;
     text-align: end;
     margin-right: 10px;
+    background-color: rgb(0, 0, 0, 0.01);
 }
 
 .grid-mg{
@@ -1643,7 +1643,7 @@ input[type="range"]:active::-moz-range-thumb{
     width: 100%;
     display: none; /*OJOOOO*/
     justify-content: center;
-    grid-template-columns: repeat(4,250px);
+    grid-template-columns: repeat(3,320px);
     row-gap: 40px;
     column-gap: 30px;
     margin-top: 20px;
@@ -1858,6 +1858,22 @@ input[type="range"]:active::-moz-range-thumb{
     position: relative;
     left: 30vw
 }
+#no-tiene-colecc{
+    font-size: 30px;
+    width: 50vw;
+}
+#cara-triste-colecc{
+    position: relative;
+    left: 10vw
+}
+#no-tiene-mycolecc{
+    font-size: 30px;
+    width: 50vw;
+}
+#cara-triste-mycolecc{
+    position: relative;
+    left: 10vw
+}
 
 .user-mg{
     display: flex;
@@ -2027,7 +2043,7 @@ input[type="range"]:active::-moz-range-thumb{
     top: 12px;
 }
 .planificar-form .btn {
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -2124,6 +2140,8 @@ input[type="range"]:active::-moz-range-thumb{
     padding: 10px;
     background-color: rgb(230, 230, 230);
     max-width: 550px;
+    max-height: 250px;
+    min-height: 150px;
 }
 #plan-titulo{
     width: 250px;
@@ -2198,7 +2216,7 @@ input[type="range"]:active::-moz-range-thumb{
     top: 12px;
 }
 .popup-crear-exp .btn{
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -2208,7 +2226,7 @@ input[type="range"]:active::-moz-range-thumb{
     opacity: 0.8;
 }
 .crear-exp-form .btn {
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 16px 20px;
     border: none;
@@ -2497,6 +2515,7 @@ input[type="range"]:active::-moz-range-thumb{
     border: 1px solid white;
     border-radius: 250px;
     margin-right: 20px;
+    cursor: pointer;
 }
 #chats-recientes-header h2 {
     font-size: 20px;
@@ -3292,7 +3311,7 @@ input[type="range"]:active::-moz-range-thumb{
 }
 .guardar-btn-editar{
     position:absolute;
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     border-radius: 10px;
     color: white;
     padding: 10px;
@@ -3644,7 +3663,7 @@ input[type="range"]:active::-moz-range-thumb{
 
 .guardar-btn-myexp{
     position:absolute;
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     border-radius: 10px;
     color: white;
     padding: 10px;
@@ -4073,6 +4092,7 @@ input[type="range"]:active::-moz-range-thumb{
 }
 .añadir-colec-header p{
     margin-top: 3px;
+    width: 120px;
 }
 
 #menu-compartir{
@@ -4617,7 +4637,7 @@ input[type="range"]:active::-moz-range-thumb{
     width: 100%;
 }
 #comment-save{
-    background-color: #04aa6dc7;
+    background-color: rgb(51, 133, 76);
     color: white;
     padding: 8px 10px;
     border: none;
@@ -4640,7 +4660,7 @@ input[type="range"]:active::-moz-range-thumb{
 /****************************************************************************************************************/
 @media only screen and (max-width: 1200px){
     .users-search-grid{
-        grid-template-columns: repeat(2,270px);
+        grid-template-columns: repeat(2,320px);
     }
 }
 
@@ -4649,7 +4669,7 @@ input[type="range"]:active::-moz-range-thumb{
         grid-template-columns: repeat(3,250px);
     }
     .users-grid{
-        grid-template-columns: repeat(1,270px);
+        grid-template-columns: repeat(1,320px);
     }
     /*Experiencia*/
     .popexp-cabecera {
@@ -4909,7 +4929,7 @@ input[type="range"]:active::-moz-range-thumb{
 
 @media only screen and (max-width: 650px){
     .users-search-grid{
-        grid-template-columns: repeat(1,270px);
+        grid-template-columns: repeat(1,320px);
     }
     #exptopic {
         height: 220px;

@@ -208,6 +208,7 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
       document.getElementById("user-menu-ul-container-id").style.display = "none";
       lastPopUp = "popup-grid-item";
       document.getElementById("popup-grid-item").display = "none";
+      console.log("OCULTA")
       //document.getElementById(lastPopUp).style.display = "flex";
       return;
     }
@@ -459,12 +460,6 @@ function closeForm(){
     reset_red();
     // recupera el scroll vertical
     document.body.style.overflowY = "visible";
-
-    if(lastPopUp == "popup-grid-item"){
-      document.getElementById("popup-grid-item").style.display = "flex";
-      lastPopUp = "";
-    }
-
 }
 
 //Mostrar ayuda
@@ -513,6 +508,10 @@ function handle_login(){
       error.style.display = "block";
     } else if (JSON.parse(userCookie).password == result['login-password']){
       console.log("Successful login");
+      if(lastPopUp == "popup-grid-item"){
+        document.getElementById("popup-grid-item").style.display = "flex";
+        lastPopUp = "";
+      }
       closeForm();
       /*Version ordenador*/
       document.getElementById("account-li-login").style.display="none";
@@ -4213,7 +4212,7 @@ function menuListaAnadeMyColeccion(listaElement, nombreExperiencia){
       document.getElementById("login").style.display = "block";
       document.getElementById("user-menu-ul-container-id").style.display = "none";
       //lastPopUp = "popup-grid-item";
-      //document.getElementById(lastPopUp).style.display = "flex";
+      document.getElementById("popup-grid-item").style.display = "none";
       return;
     }
   }

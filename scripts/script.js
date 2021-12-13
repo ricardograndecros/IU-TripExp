@@ -206,7 +206,8 @@ function menuListaAnadeColeccion(listaElement, nombreExperiencia){
     if(loggedInEmail == ""){
       document.getElementById("login").style.display = "block";
       document.getElementById("user-menu-ul-container-id").style.display = "none";
-      //lastPopUp = "popup-grid-item";
+      lastPopUp = "popup-grid-item";
+      document.getElementById("popup-grid-item").display = "none";
       //document.getElementById(lastPopUp).style.display = "flex";
       return;
     }
@@ -459,8 +460,8 @@ function closeForm(){
     // recupera el scroll vertical
     document.body.style.overflowY = "visible";
 
-    if(lastPopUp != ""){
-      document.getElementById(lastPopUp).style.display = "flex";
+    if(lastPopUp == "popup-grid-item"){
+      document.getElementById("popup-grid-item").style.display = "flex";
       lastPopUp = "";
     }
 

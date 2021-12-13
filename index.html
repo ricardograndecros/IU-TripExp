@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="images/logo/logo2.ico">
+        <link rel="stylesheet" href="style/normalize.css">
+        <link rel="stylesheet" href="style/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!--
+        <link href="dist/simple-lightbox.min.css" rel="stylesheet" />
+	    <script src="dist/simple-lightbox.min.js"></script>
+	    <script src="dist/simple-lightbox.legacy.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script src="/path/to/cdn/jquery.min.js"></script>
+	    <script src="dist/simple-lightbox.jquery.min.js"></script>-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500&family=Lato:wght@300&family=Rasa:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+        <script src="./scripts/script.js"></script>
+        <title>TripExp.com</title>
+    </head>
+
+    <body class="body">
+        <header class="main-header">
+            <div class="main-header-container">
+                <div class="main-header-container-logo">
+                    <a href="#" onclick="Home()"><img src="images/logo/logotipo2.png" alt="TripExp.com"></a>
+                </div>
+                
+                <div class="main-header-container-nav">
+                    <nav class="main-nav">
+                        <ul class="main-nav-ul">
+                            <li class="main-nav-li">
+                            <a href="#" onclick="Home()">
+                                <span><img src="images/iconos/home22.png" alt="Home"></span>
+                                <span>Home</span>
+                            </a>
+                            </li>
+                            <li id="sobre-nosotros" class="main-nav-li">
+                            <a href="https://www.booking.com/content/about.es.html" target="_BLANK">
+                                <span><img src="images/iconos/user22.png" alt="About us"></span>
+                                <span>Sobre nosotros</span>
+                            </a>
+                            </li>
+                            <li class="main-nav-li">
+                            <a href="https://www.booking.com/content/contact-us.es.html" target="_BLANK">
+                                <span><img src="images/iconos/phone22.png" alt="Contact"></span>
+                                <span>Contáctanos</span>
+                            </a>
+                            </li>
+                        </ul>
+
+                        <ul class="main-nav-responsive-ipad-ul">
+                            <li class="main-nav-responsive-ipad-li"><img src="images/iconos/home15.png" alt="Casa"><a href="#" onclick="Home()">Home</a></li>
+                            <li id="ipad-sobre-nosotros" class="main-nav-responsive-ipad-li"><img src="images/iconos/user15.png" alt="About us"><a href="https://www.booking.com/content/about.es.html" target="_BLANK">Sobre nosotros</a></li>
+                            <li class="main-nav-responsive-ipad-li"><img src="images/iconos/phone15.png" alt="Contact"><a href="https://www.booking.com/content/contact-us.es.html" target="_BLANK">Contáctanos</a></li>
+                        </ul>
+                   
+                    </nav> 
+                </div>
+                
+                <div class="main-header-container-account">
+                    <ul class="account-ul" >
+                        <li id="chat-header"><img id="chat-icon-header" src="images/iconos/icons8-chat-bubble-50.png" alt="Chat" onclick="showHideChat()"></li>
+                        <li class="profile-pic-header" id="profile-pic-header" onclick="cambiarMenu()"><img id="ppic" src="images/user_account.png" alt="User"></li>
+                        <li class="profile-menu-li" id="profile-menu-header">
+                            <div class="profile_menu">
+                                <ul class="menu_links" onclick="cambiarMenu()">
+                                    <li class="menu_item header-account" >
+                                        <a class="menu_link"><p id="username-menu"></p><img src="images/down-arrow.png" alt="flecha" class="menu__arrow" id="flechmenu"></a>
+                                        <ul class="menu_nesting" id="menu_nesting">
+                                            <li class="menu_inside">
+                                                <a href=# class="menu_link menu_link--inside" onclick="openMyProfile()">Mi perfil</a>
+                                            </li>
+                                            <li class="menu_inside">
+                                                <a href=# class="menu_link menu_link--inside" onclick="openMyExp()">Editar perfil</a>
+                                            </li>
+                                            <li class="menu_inside" id="menu_inside-cancelar">
+                                                <a href=# class="menu_link menu_link--inside" onclick="openLogOut()">Cerrar sesión</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="account-li" id="account-li-login" onclick="openForm(this)">Iniciar Sesión</li>
+                        <li class="account-li" id="account-li-signup" onclick="openForm(this)">Crear Cuenta</li>
+                    </ul>
+                </div>
+                <div class="header-account-mobile">
+                    <div class="profile_menu_mobile" id="menu_mobile">
+                        <ul class="menu_links">
+                            <li class="menu_item" id="menu_item_profile">
+                                <div class="profile-pic"><img alt="User" src="images/user_account.png" id="ppicmob"></div>
+                                <a class="menu_link" onclick="desplPerfilMenuHamburguesa()"><p id="username-mob"></p><img src="images/down-arrow.png" alt="flecha" class="menu__arrow" id="flechmenuhamb"></a>
+                                <ul class="menu_nesting_hamb" id="menu_nesting_mobile">
+                                    <li class="menu_inside">,
+                                        <a href=# class="menu_link_hamb menu_link--inside" onclick="openMyProfile()"><i>Mi perfil</i></a>
+                                    </li>
+                                    <li class="menu_inside">
+                                        <a href=# class="menu_link_hamb menu_link--inside" onclick="openMyExp()"><i>Editar perfil</i></a>
+                                    </li>
+                                    <li class="menu_inside">
+                                        <a href=# class="menu_link_hamb menu_link--inside" onclick="openLogOut()"><i>Cerrar sesión</i></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu_item">
+                                <a href="#" class="menu_link" onclick="Home()">Home</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="https://www.booking.com/content/about.es.html" target="_BLANK" class="menu_link">Sobre nosotros</a>
+                            </li>
+                            <li class="menu_item">
+                                <a href="https://www.booking.com/content/contact-us.es.html" target="_BLANK" class="menu_link">Contáctanos</a>
+                            </li>
+                            <li class="menu_item enterbutton" id="menu_item_login">
+                                <a class="menu_link" onclick="openForm(this)"><i>Iniciar Sesión</i></a>
+                            </li>
+                            <li class="menu_item enterbutton" id="menu_item_signup">
+                                <a class="menu_link" onclick="openForm(this)"><i>Crear Cuenta</i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu_hamburguer" id="menu_hamburguer" onclick="menuHamburguesa()"><img class="menu_img" id="menu_img_hamb" src="images/menu-regular-24.png" alt="Menu"></div>
+
+                </div>
+
+                <!-- HTML del popup para login-->
+                <div class="popup-menu" id="login">
+                    <div class="content" id="login-content">
+                        <a class="close" onclick="closeForm()"></a>
+                        <form class="login-form" id="login-form">
+                            <h1>Inicio sesión</h1>
+                            <div class="logintosignup"><p>¿No tienes todavía una cuenta? <a href="#" onclick="openForm(this)">Regístrate</a></p></div>
+                            <label for="login-email"><b>Email</b></label>
+                            <input class="login-input" id="login-email" type="text" placeholder="Escribe un email" name="login-email" required>
+
+                            <label for="login-password"><b>Contraseña</b></label>
+                            <input class="login-input" id="login-password" type="password" placeholder="Escribe una contraseña" name="login-password" required>
+
+                            <p class=login-error id=wrongEmail>Cuenta no registrada</p>
+                            <p class=login-error id=wrongPassword>Contraseña incorrecta</p>
+
+                            <button type="button" class="btn login" onclick="handle_login()">Aceptar</button>
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeForm()"></div>
+                </div>
+
+                <!-- HTML del popup para sign up -->
+                <div class="popup-menu" id="signup">
+                    <div class="content">
+                        <a class="close" onclick="closeForm()"></a>
+                        <form class="login-form" id="signup-form">
+                            <h1>Regístrate</h1>
+                            <label class="input" for="username"><b>Nombre de usuario</b><b class="error-message" id="error-username"></b></label>
+                            <input id="username" type="text" placeholder="Escribe un nombre de usuario" name="username" required>
+
+                            <label class="input" for="password"><b>Contraseña</b><b class="error-message" id="error-password"></b></label>
+                            <input id="password" type="password" placeholder="Escribe una contraseña" name="password" required>
+                            <div class="ayuda"> 
+                                <div class="ayuda_container" id="ayuda_container"><p>La contraseña debe tener entre 4 y 8 caracteres.<br>Los caracteres válidos: A-Z a-z 0-9 </p></div>
+                                <img id="interrogacion" onclick="mostrarAyuda(this)" src="images/iconos/interrogacion.png" alt="Ayuda">
+                            </div>
+
+                            <label class="input" for="name"><b>Nombre</b><b class="error-message" id="error-name"></b></label>
+                            <input id="name" type="text" placeholder="Escribe tu nombre" name="name" required>
+
+                            <label class="input" for="lastname"><b>Apellido</b><b class="error-message" id="error-lastname"></b></label>
+                            <input id="lastname" type="text" placeholder="Escribe tu apellido" name="lastname" required>
+
+                            <label class="input" for="email"><b>Email</b><b class="error-message" id="error-email"></b></label>
+                            <input id="email" type="text" placeholder="Escribe un email" name="email" required>
+
+                            <label class="input" for="birthdate"><b>Fecha de nacimiento</b><b class="error-message" id="error-birthdate"></b></label>
+                            <input id="birthdate" type="date" name="birthdate" required>
+
+                            <div class="borrar-foto" onclick="borrar_imagen()">
+                                <img src="images/iconos/x.png" alt="borrar-foto">
+                            </div>
+
+                            <label class="input" for="photo"><b>Foto de perfil</b><b class="error-message" id="error-photo"></b></label>
+                            <input id="photo" type="file" name="profile-pictrue">
+
+                            <b>Intereses</b>
+                            <div class="interest-wrapper">
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest" id="culture" type="checkbox" name="culture" value="culture">
+                                        <label class="interest" for="culture"> Cultura</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest" id="history" type="checkbox" name="history" value="history">
+                                        <label class="interest" for="history"> Historia</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest" id="nature" type="checkbox" name="nature" value="nature">
+                                        <label class="interest" for="nature"> Naturaleza</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest" id="business" type="checkbox" name="business" value="business">
+                                        <label class="interest" for="business"> Negocios</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container"> 
+                                        <input class="interest" id="gastronomy" type="checkbox" name="gastromony" value="gastronomy">
+                                        <label class="interest" for="gastronomy"> Gastronomía</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest" id="sports" type="checkbox" name="sports" value="sports">
+                                        <label class="interest" for="sports"> Deportes</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label for="terms" id="label-terms">
+                                <input id="terms" type="checkbox" name="terms" required>
+                                <p id=terms-text> He leído y acepto los <a href="https://www.booking.com/content/terms.es.html" target="_BLANK">términos y condiciones</a></p>
+                            </label>
+
+                            <b class="error-message" id="error-terms"></b>
+                            <div id="already-registered"><b>Ya existe una cuenta con ese correo</b></div>
+                            <div id="already-registered-username"><b>Ya existe una cuenta con ese nombre usuario</b></div>
+                            <div class=signup-buttons>
+                                <button type="button" class="btn reset" onclick="reset_form()">Restablecer</button>
+                                <button type="button" class="btn save" onclick="handle_registration()">Crear Cuenta</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeForm()"></div>
+                </div>
+                <div class="popup-menu" id="logout">
+                    <div class="log-out-content">
+                        <a class="close" onclick="closeForm()"></a>
+                        <div class="log-out-question">¿Estás seguro de querer cerrar sesión?</div>
+                        <div class=logout-buttons>
+                            <button type="button" class="btn No" onclick="closeForm()">No</button>
+                            <button type="button" class="btn Yes" onclick="handle_logout()">Sí</button>
+                        </div>
+                    </div>
+                    <div class="blocker" onclick="closeForm()"></div>
+                </div>
+
+            </div> 
+
+            <!--CREO QUE NO SE USA PERO GUARDAR PARA VER LO DE MODIFY-->
+            <!--
+            <div class="popup-menu" id="popup-myprofile">
+                <div class="content-myprofile" id=prof-popup-content>
+                    <a class="close closemyprofile" onclick="closeMyProfile()"></a>
+                    <div id="myprofile">
+                        <div class="myprofile mypicture">
+                            <img alt="User" src="images/user_account.png" id="myphoto_mymenu">
+                        </div>
+                        <div class="myprofile" id="myusername">
+                            <p><b>Nombre de usuario:</b> </p>
+                        </div>
+                        <div class="myprofile" id="myname">
+                            <p><b>Nombre:</b> </p>
+                        </div>
+                        <div class="myprofile" id="mylastname">
+                            <p><b>Apellido:</b> </p>
+                        </div>
+                        <div class="myprofile" id="myemail">
+                            <p><b>Email:</b> </p>
+                        </div>
+                        <div class="myprofile mytopic" id="mytopic">
+                            <b>Intereses: </b>
+                            <div class="topic-wrapper">
+                                <div>
+                                    <div class="topic-container">
+                                        <input class="topic" id="myculture" type="checkbox" name="topic7" value="culture">
+                                        <label class="topic" for="topic7"> Cultura</label>
+                                    </div>
+                                    <div class="topic-container">
+                                        <input class="topic" id="myhistory" type="checkbox" name="topic8" value="history">
+                                        <label class="topic" for="topic8"> Historia</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="topic-container">
+                                        <input class="topic" id="mynature" type="checkbox" name="topic9" value="nature">
+                                        <label class="topic" for="topic9"> Naturaleza</label>
+                                    </div>
+                                    <div class="topic-container">
+                                        <input class="topic" id="mybusiness" type="checkbox" name="topic10" value="business">
+                                        <label class="topic" for="topic10"> Negocios</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="topic-container"> 
+                                        <input class="topic" id="mygastronomy" type="checkbox" name="topic11" value="gastronomy">
+                                        <label class="topic" for="topic11"> Gastronomía</label>
+                                    </div>
+                                    <div class="topic-container">
+                                        <input class="topic" id="mysports" type="checkbox" name="topic12" value="sports">
+                                        <label class="topic" for="topic12"> Deporte</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <button type="button" class="modifyprofile" onclick="modifyProfile()">Modify Profile</button>
+                    </div> 
+                    <div class="change-profile" >
+                        <form class="login-form change-profile" id="change-profile-form">
+                            <h2>Change profile</h2>
+                            <label class="input" for="changeusername"><b>Username</b><b class="error-message" id="error-usernamechange"></b></label>
+                            <input id="changeusername" type="text" placeholder="Enter new usarname" name="changeusername" required>
+                        
+                            <label class="input" for="changephoto"><b>Profile picture</b><b class="error-message" id="error-changephoto"></b></label>
+                            <input id="changephoto" type="file" name="changeprofile-pictrue">
+
+                            <b>Interests</b>
+                            <div class="changeint-wrapper">
+                                <div>
+                                    <div class="changeint-container">
+                                        <input class="changeint" id="changeculture" type="checkbox" name="interest11" value="changeculture">
+                                        <label class="changeint" for="interest11"> Culture</label>
+                                    </div>
+                                    <div class="changeint-container">
+                                        <input class="changeint" id="changehistory" type="checkbox" name="interest12" value="changehistory">
+                                        <label class="changeint" for="interest12"> History</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="changeint-container">
+                                        <input class="changeint" id="changenature" type="checkbox" name="interest13" value="changenature">
+                                        <label class="changeint" for="interest13"> Nature</label>
+                                    </div>
+                                    <div class="changeint-container">
+                                        <input class="changeint" id="changebusiness" type="checkbox" name="interest14" value="changebusiness">
+                                        <label class="changeint" for="interest14"> Business</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="changeint-container"> 
+                                        <input class="changeint" id="changegastronomy" type="checkbox" name="interest15" value="changegastronomy">
+                                        <label class="changeint" for="interest15"> Gastronomy</label>
+                                    </div>
+                                    <div class="changeint-container">
+                                        <input class="changeint" id="changesports" type="checkbox" name="interest16" value="changesports">
+                                        <label class="changeint" for="interest16"> Sports</label>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <div class=signup-buttons>
+                            <button type="button" class="btn reset" onclick="resetChanges()">Reset</button>
+                            <button type="button" class="btn save" onclick="saveChanges()">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="blocker" onclick="closeMyProfile()"></div>
+            </div>-->
+            <div id="snackbar">Usuario registrado correctamente</div>
+        </header>
+
+
+        <div class="main-body-container">
+            <div id="snackbarbody">Usuario registrado correctamente</div>
+            <section class="body-search-section-container">              
+                <div class="search-overlay"></div>
+                <div class="search-bar">
+                    <h2><i>¡Aquí comienza tu viaje!</i></h2>
+                    <div class="search-background">
+                        <img src="images/fondo_search.gif" alt="NY Skyline">
+                    </div>
+                    <div class="search-text"><p>Busca entre miles de experiencias, chatea con otros usuarios y mucho más.</p></div>
+                    <div class= "search-container">
+                        <form action="index.html" onsubmit="return search()">
+                            <label id="search-input-label" for="search-input" style="display: none;">Buscar</label>
+                            <input id="search-input" type="search" placeholder="Busca una experiencia" name="search-input">
+                            
+                            <span id="search-btn" onclick="search()">
+                                <div>
+                                    <img src="images/iconos/search-2.png" alt="Search">
+                                </div>
+                            </span>
+                        </form>
+                        <span id="filtro-btn" onclick="openFilter()">
+                            <div>
+                                <img id="filtro-btn-img" src="images/iconos/filtro.png" alt="Filtro">
+                            </div>
+                        </span>
+
+
+                        <div id="filter-container">
+                            <div>
+                                <div id="pestana-filter">
+                                    <ul id="pestana-filter-container">
+                                        <li id="pestana-intereses" onclick="changeFilter(this)">
+                                            <p>Intereses</p>
+                                        </li>
+                                        <li id="pestana-relevancia" onclick="changeFilter(this)">
+                                            <p>Relevancia</p>
+                                        </li>
+                                        <li id="pestana-fecha" onclick="changeFilter(this)">
+                                            <p>Fecha</p>
+                                        </li>
+                                        <li id="pestana-presupuesto" onclick="changeFilter(this)">
+                                            <p>Presupuesto</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="filter-intereses">
+                                    <div id="intereses-title">
+                                        <p><b> Marca tantos como quieras</b></p>
+                                    </div>
+                                    <form id="intereses-content">
+                                        <div>
+                                            <div class="interest-container-filter">
+                                                <input class="interest-filter" id="filter-culture" type="checkbox" name="filter-culture" value="culture">
+                                                <label class="interest-filter" for="filter-culture"> Cultura</label>
+                                            </div>
+                                            <div class="interest-container-filter">
+                                                <input class="interest-filter" id="filter-history" type="checkbox" name="filter-history" value="history">
+                                                <label class="interest-filter" for="filter-history"> Historia</label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="interest-container-filter">
+                                                <input class="interest-filter" id="filter-nature" type="checkbox" name="filter-nature" value="nature">
+                                                <label class="interest-filter" for="filter-nature"> Naturaleza</label>
+                                            </div>
+                                            <div class="interest-container-filter">
+                                                <input class="interest-filter" id="filter-business" type="checkbox" name="filter-business" value="business">
+                                                <label class="interest-filter" for="filter-business"> Negocios</label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="interest-container-filter"> 
+                                                <input class="interest-filter" id="filter-gastronomy" type="checkbox" name="filter-gastronomy" value="gastronomy">
+                                                <label class="interest-filter" for="filter-gastronomy"> Gastronomía</label>
+                                            </div>
+                                            <div class="interest-container-filter">
+                                                <input class="interest-filter" id="filter-sports" type="checkbox" name="filter-sports" value="sports">
+                                                <label class="interest-filter" for="filter-sports"> Deportes</label>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div>
+                                <div id="filter-relevancia">
+                                    <div id="relevancia-title">
+                                        <p><b> Ordenar por:</b></p>
+                                    </div>
+                                    <div id="relevancia-content">
+                                        <form id="likes-content">
+                                            <p><b>Likes (exp.)</b></p>
+                                            <div class="likes-container-filter">
+                                                <input class="likes-filter" id="filter-likes-mayor" type="checkbox" name="filter-likes-mayor" value="mas-likes" onclick="uncheckBox()">
+                                                <label class="likes-filter" for="filter-likes-mayor"> Más likes</label>
+                                            </div>
+                                            <div class="likes-container-filter">
+                                                <input class="likes-filter" id="filter-likes-menor" type="checkbox" name="filter-likes-menor" value="menos-likes" onclick="uncheckBox()">
+                                                <label class="likes-filter" for="filter-likes-menor"> Menos likes</label>
+                                            </div>
+                                        </form>
+                                        <form id="comments-content">
+                                            <p><b>Publicaciones (usu.)</b></p>
+                                            <div class="comentarios-container-filter">
+                                                <input class="comentarios-filter" id="comentarios-mayor" type="checkbox" name="comentarios-mayor" value="mas-comentarios" onclick="uncheckComments()">
+                                                <label class="comentarios-filter" for="comentarios-mayor"> Más publicaciones</label>
+                                            </div>
+                                            <div class="comentarios-container-filter">
+                                                <input class="comentarios-filter" id="comentarios-menor" type="checkbox" name="comentarios-menor" value="menos-comentarios" onclick="uncheckComments()">
+                                                <label class="comentarios-filter" for="comentarios-menor"> Menos publicaciones</label>
+                                            </div>
+                                        </form>
+                                    </div>                                                                  
+                                </div>
+                                <div id="filter-fecha">
+                                    <div class="filter-fecha">
+                                        <p><b>Ordenar:</b></p>
+                                        <form id="fecha-container-filter">
+                                            <div class="fecha-container-filter">
+                                                <input class="fecha-filter" id="filter-fecha-reciente" type="checkbox" name="filter-fecha-reciente" value="fecha-reciente" onclick="uncheckBox()">
+                                                <label class="fecha-filter" for="filter-fecha-reciente"> Más reciente primero</label>
+                                            </div>
+                                            <div class="fecha-container-filter">
+                                                <input class="fecha-filter" id="filter-fecha-antigua" type="checkbox" name="filter-fecha-antigua" value="fecha-antigua" onclick="uncheckBox()">
+                                                <label class="fecha-filter" for="filter-fecha-antigua"> Más antiguo primero</label>
+                                            </div>
+                                        </form>
+                                    </div>                                                               
+                                </div>
+                                <div id="filter-presupuesto">
+                                    <div class="filter-presupuesto-title"><p><b>Selecciona el rango de precios:</b></p></div>
+                                    <div class="wrapper">
+                                        <div class="values">
+                                            <span id="range1">
+                                                0
+                                            </span>
+                                            <span> &dash; </span>
+                                            <span id="range2">
+                                                1000
+                                            </span>
+                                            <span>€</span>
+                                        </div>
+                                        <div class="presupuesto-container">
+                                            <div class="slider-track"></div>
+                                            <input id="slider1" name="slider1" type="range" value=0 min="0" max="1000" oninput="slideOne()">
+                                            <label for="slider1" style="display: none">H</label>
+                                            
+                                            <input id="slider2" name="slider2" type="range" value=1000 min="0" max="1000" oninput="slideTwo()">
+                                            <label for="slider2" style="display: none">g</label>
+                                        </div>
+                                    </div>                                                          
+                                </div>
+                                <div id="botones-filter">
+                                    <ul id="botones-filter-container">
+                                        <li id="boton-restablecer" onclick="resetSearch()">
+                                            <p>Restablecer</p>
+                                        </li>
+                                        <li id="boton-aplicar" onclick="search()">
+                                            <p>Aplicar</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+
+                        <div class="c-search-error">
+                            <div id="search-error"><p></p>    
+                            </div>
+                        </div>
+                    </div> 
+                    
+                </div>
+
+        
+                <div id="result-search">
+                    <h2><i>.</i></h2>
+                </div>
+            </section>  
+
+            <section class="experiences">
+                
+                <div id="busqueda-container">
+                    <h1><i id="busqueda">.</i></h1>
+                    <p id="total-filtros"></p>
+                </div>
+
+                <div class="barrera-resultado1" id="barrera-resultado1"></div>
+
+                <div class="experiences-title">
+                    <h2><i id="titulo-experiencias">Experiencias más visitadas</i></h2>
+                    <div class="linea"></div>
+                </div>
+                <div class="experiences-grid" id="initial-experiences-grid">
+                </div>
+                <div id="users-search-title">
+                    <h2><i>Usuarios</i></h2>
+                    <div class="linea"></div>
+                </div>
+                <div class="users-search-grid" id="users-search-grid">
+                </div>
+
+                <div class="barrera-resultado" id="barrera-resultado2"></div>
+
+                <div class="ver-mas">
+                    <h3><i onclick="viewMoreExp(this)" id = "ver-mas-experiencias">Ver todas las experiencias</i></h3>
+                </div>
+
+                <div class="compartir-container" id="compartir-container">
+                    <div class="popup-compartir">
+                        <ul class="compartir-ul">
+                            <li class="compartir-li"><a href="https://twitter.com" target="_BLANK"><img src="images/rrss/twitter-icon.svg" alt="Twitter"></a></li>
+                            <li class="compartir-li"><a href="https://instagram.com" target="_BLANK"><img src="images/rrss/instagram-icon.png" alt="Instagram"></a></li>
+                            <li class="compartir-li"><a href="https://facebook.com" target="_BLANK"><img src="images/rrss/facebook-icon.svg" alt="Facebook"></a></li>
+                            <li class="compartir-li"><a href="https://whatsapp.com" target="_BLANK"><img src="images/rrss/whatsapp-icon.png" alt="WhatsApp"></a></li>
+                            <li class="compartir-li"><a href="https://gmail.com" target="_BLANK"><img src="images/rrss/gmail-icon.png" alt="Gmail"></a></li>
+                        </ul>
+                    </div>
+                    <div class="blocker" onclick="closeShare()"></div>
+                </div>
+
+                <div class="popup-exp" id="popup-grid-item">
+                    <div class="content" id="popup-grid-item-content">
+                        <a class="close" onclick="closeExp()"></a>
+                        <!--CAMBIOS-->
+                        <div class="popexp-cabecera">
+                            <img id="popexp-portada" src="" alt="Portada">
+                            <div class="popexp-text">
+                                <div class="popexp-title"><h2 id="experience-title">.</h2></div>
+                                <div class="popexp-linea"></div>
+                                <div class="popexp-icons">
+                                    <div class="popexp-icons-grid">
+                                        <img id="popexp-like-icon" src="images/iconos/heart-regular-24.png" alt="mg" onclick="Like(this)">
+                                        <p id="popexp-likes"></p>
+                                    </div>
+                                    <div class="popexp-icons-grid">
+                                        <a href="#add-comment"><img id="popexp-comment-icon" src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt="comment" onclick="preComment(this)"></a>
+                                        <p id="popexp-comments"></p>
+                                    </div>
+                                    <div class="popexp-icons-grid" id="euro">
+                                        <img src="images/iconos/icons8-euro-24.png" alt="presupuesto">
+                                        <p id="popexp-gasto"></p>
+                                    </div>
+                                    <div class="popexp-icons-grid">
+                                        <img id="popexp-share-icon" src="images/iconos/share-alt-regular-24.png" alt="share" onclick="openShare()">
+                                    </div> 
+                                </div>
+                                <div class="popexp-anadir-col" onclick="menuListaAnadeColeccion('lista-colec-myexp', '')">
+                                    <div class="popexp-anadir-col-header">
+                                        <p>Añadir a colección</p>
+                                        <img src="images/iconos/anadir_blanco.png" alt="añadir">
+                                    </div>
+                                    <div class="user-menu-ul-container" id="user-menu-ul-container-id">
+                                        <ul class="user-menu-ul-add-colec" id="lista-colec-myexp">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="info-exp-user">
+                                    <ul class="popexp-user">
+                                        <li>
+                                            <p>Creada por: &nbsp</p><p id="persona" onclick="openExpUser(this)"></p>
+                                        </li>
+                                        <li id="exp-info-colaboradores">
+                                            <p>Colaboradores: &nbsp</p><p id="colaborador"></p>
+                                        </li>
+                                        <li id="exp-info-fecha">
+                                            <p>Fecha: &nbsp</p><p id="fecha"><!-- 10 Agosto 2020 --></p>
+                                        </li>
+                                        <div class="myprofile mytopic" id="exptopic">
+                                            <p>Intereses: </p>
+                                            <div class="topic-wrapper">
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="expculture" type="checkbox" name="expculture" value="culture">
+                                                        <label class="topic" for="expculture"> Cultura</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="exphistory" type="checkbox" name="exphistory" value="history">
+                                                        <label class="topic" for="exphistory"> Historia</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="expnature" type="checkbox" name="expnature" value="nature">
+                                                        <label class="topic" for="expnature"> Naturaleza</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="expbusiness" type="checkbox" name="expbusiness" value="business">
+                                                        <label class="topic" for="expbusiness"> Negocios</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container"> 
+                                                        <input class="topic" id="expgastronomy" type="checkbox" name="expgastronomy" value="gastronomy">
+                                                        <label class="topic" for="expgastronomy"> Gastronomía</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="expsports" type="checkbox" name="expsports" value="sports">
+                                                        <label class="topic" for="expsports"> Deportes</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div id="mostrarmas" onclick=mostrarMas()>MOSTRAR MAS</div>
+                                        <div id="mostrarmenos" onclick=mostrarMenos()>MOSTRAR MENOS</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="exp-container">
+                            <div>
+                                <div id="pestana-filter-popupexp">
+                                    <ul id="pestana-filter-container-popupexp">
+                                        <li id="pestana-descripcion" onclick="changeFilterPopUpExp(this)">
+                                            <p class="pestana-filter-p">Descripción</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/info-circle-regular-24.png" alt="info">
+                                        </li>
+                                        <li id="pestana-transporte" onclick="changeFilterPopUpExp(this)">
+                                            <p class="pestana-filter-p">Transporte</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/bus-regular-24.png" alt="transporte">
+                                        </li>
+                                        <li id="pestana-presu" onclick="changeFilterPopUpExp(this)">
+                                            <p class="pestana-filter-p">Presupuesto</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/euro-regular-24.png" alt="presupuesto">
+                                        </li>
+                                        <li id="pestana-Alojamiento" onclick="changeFilterPopUpExp(this)">
+                                            <p class="pestana-filter-p">Alojamiento</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/home-regular-24.png" alt="alojamiento">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-popupexp" id="filter-descripcion">
+                                   <p id="filter-descripcion-p">.</p>
+                                </div>
+                                <div class="filter-popupexp" id="filter-transporte">
+                                   <p id="filter-transporte-p">.</p>                                                 
+                                </div>
+                                <div class="filter-popupexp" id="filter-presu">
+                                    <p id="filter-presu-p">.</p>                                                              
+                                </div>
+                                <div class="filter-popupexp" id="filter-alojamiento">
+                                    <p id="filter-alojamiento-p">.</p>                                                              
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <!--
+                        <div class="Galeria">
+                            <div class="galeria-computer">
+                                <div class="column">
+                                    <div class="column-item">
+                                        <img alt="" src="images/Spain/san_sebastian.jpg">
+                                        <p>San Sebastián</p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="column-item">
+                                        <img alt="" src="images/Spain/castro-urdiales.jpg">
+                                        <p>Castro Urdiales</p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="column-item">
+                                        <img alt="" src="images/Spain/laredo.png">
+                                        <p>Laredo</p>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ver-mas-imagenes">
+                                        <img alt="" src="images/iconos/anadir_gris.png">
+                                        <p>Ver Más Imagenes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="grid-gallery" id=galeria-popupexp>
+                            <a class="grid-gallery__item" href="">
+                                <img class="grid-gallery__image" src="images/Spain/laredo.png" alt="España">
+                            </a>
+
+                        </div>
+
+                        
+                        <div class="popup-exp-gallery" id="gallery-viewer">
+                            <div class="content-gallery">
+                                <a class="close" onclick="closeViewer()"></a>
+                                <div class="contenido-galleryviewer">
+                                    <div class="seccionimagen">
+                                        <img class="viewer-photo" id="viewer-picture"  src="images/iconos/chevron-left-regular-72.png" alt="flecha-izquierda">
+                                    </div>
+                                    <div class="contenido-abajo">
+                                        <div class= "flecha">
+                                            <img class="viewer-flecha" onclick="pasaratras()" src="images/iconos/chevron-left-regular-72.png" alt="portada">
+                                        </div>
+                                        <div class="restoImagenes" id="galleryviewer-resto">
+                                        </div>
+                                        <div class="flecha">
+                                            <img class="viewer-flecha" onclick="pasarsiguiente()" src="images/iconos/chevron-right-regular-72.png" alt="flecha-derecha">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--
+                        <div class="gallery"> 
+
+                            <a href="1.jpg" class="big" rel="rel1">
+                              <img src="images/Spain/san_sebastian.jpg" alt="" title="Image 1">
+                            </a>
+                          
+                            <a href="2.jpg" class="big" rel="rel1">
+                              <img src="images/Spain/laredo.png" alt="" title="Image 2">
+                            </a>
+                          
+                            <a href="3.jpg" class="big" rel="rel2">
+                              <img src="images/Spain/castro-urdiales.jpg" alt="" title="Image 3">
+                            </a>
+                          
+                            <a href="4.jpg" class="big" rel="rel2">
+                              <img src="images/Spain/san_sebastian.jpg" alt="" title="Image 4">
+                            </a>
+                            
+                        </div>-->
+                          
+                        <div class="exp-comment-section">
+                            <div class="comment-title">
+                                <p>Comentarios</p>
+                            </div>
+                            <div class="comentarios-recibidos" id="received-comments">
+                                
+                            </div>
+                            <div class="comentario" id="new-comment">
+                                
+                            </div> 
+
+                        </div>
+                    </div>
+                    <div class="blocker" onclick="closeExp()"></div>
+                </div>
+
+            </section>
+            <section class="users">
+                <div class="users-title">
+                    <h2><i>Ranking de usuarios</i></h2>
+                    <div class="linea"></div>
+                </div>
+                <div class="users-grid" id="initial-users-grid">
+            
+                </div>
+
+                <!--CAMBIO/CAMBIAR-->
+                <div class="ranking-completo" id="ranking-completo">
+                    <div>
+                        <h3><i>Resto de usuarios</i></h3>
+                    </div>
+                    <ul id="lista-ranking">
+                        
+                    </ul>
+                </div>
+                <div class="ver-mas">
+                    <h3><i onclick="viewMoreUsers(this)">Ver ranking completo</i></h3>
+                </div>
+
+        
+                <!--
+                <div class="users-grid">
+                    <div class="grid-item-users" onclick="openExp(this)" id="grid-item-users1">
+                        <div class="user-picture">
+                            <img src="images/perfiles/juli08.png" alt="Juli08">
+                        </div>
+                        <div class="user-name"><h3>Juli08</h3></div>
+                        <img class="medalla" src="images/iconos/medalla-oro.png" alt="oro">
+                        <div class="user-mg">
+                            <img src="images/iconos/mg-black.png" alt="mg">
+                            <p>25</p>
+                        </div>
+                        <div class="user-pub">
+                            <img src="images/iconos/pub.png" alt="pub">
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <div class="grid-item-users" onclick="openExp(this)" id="grid-item-users2">
+                        <div class="user-picture">
+                            <img src="images/perfiles/blancam.png" alt="BlancaM">
+                        </div>
+                        <div class="user-name"><h3>BlancaM</h3></div>
+                        <img class="medalla" src="images/iconos/medalla-plata.png" alt="plata">
+                        <div class="user-mg">
+                            <img src="images/iconos/mg-black.png" alt="mg">
+                            <p>17</p>
+                        </div>
+                        <div class="user-pub">
+                            <img src="images/iconos/pub.png" alt="pub">
+                            <p>2</p>
+                        </div>
+                    </div>
+                    <div class="grid-item-users" onclick="openExp(this)" id="grid-item-users3">
+                        <div class="user-picture">
+                            <img src="images/perfiles/joao46.png" alt="Joa46">
+                        </div>
+                        <div class="user-name"><h3>Joao46</h3></div>
+                        <img class="medalla" src="images/iconos/medalla-bronce.png" alt="bronce">
+                        <div class="user-mg">
+                            <img src="images/iconos/mg-black.png" alt="mg">
+                            <p>5</p>
+                        </div>
+                        <div class="user-pub">
+                            <img src="images/iconos/pub.png" alt="pub">
+                            <p>1</p>
+                        </div>
+                    </div>  
+                    <div class="ver-mas">
+                        <h3><i>Ver ranking completo</i></h3>
+                    </div>
+                </div>-->
+
+                <div class="popup-user" id="popup-user-item">
+                    <div class="content">
+                        <a class="close" onclick="closeUser()"></a>
+                
+                        <div class="popuser-cabecera">
+                            <img id="popuser-portada" src="images/perfiles/joao46.png" alt="Portada">
+                            <div class="popuser-text">
+                                <div class="popuser-title"><h2 id="user-username">PacoJones</h2></div>
+                                <div class="popuser-linea"></div>
+                                <div class="popuser-icons">
+                                    <div class="popuser-icons-grid">
+                                        <img id="popuser-like-icon" src="images/iconos/heart-regular-24.png" alt="mg">
+                                        <p id="popuser-likes"></p>
+                                    </div>
+                                    <div class="popuser-icons-grid">
+                                        <img id="popuser-pub-icon" src="images/iconos/pub.png" alt="pub">
+                                        <p id="popuser-public"></p>
+                                    </div>
+                                    <div class="popuser-icons-grid">
+                                        <img id="popuser-share-icon" src="images/iconos/share-alt-regular-24.png" alt="share" onclick="openShare()">
+                                    </div> 
+                                </div>
+                                <div class="info-user">
+                                    <ul class="popuser-data">
+                                        <li id="user-info-name">
+                                            <p>Nombre: &nbsp</p><p id="nombre-user"></p>
+                                        </li>
+                                        <li id="user-info-surname">
+                                            <p>Apellido: &nbsp</p><p id="apellido-user"></p>
+                                        </li>
+                                        <li id="user-info-birthdate">
+                                            <p>Fecha de nacimiento: &nbsp</p><p id="cumple-user"><!-- 10 Agosto 2020 --></p>
+                                        </li>
+                                        <li id="user-info-email">
+                                            <p>Email: &nbsp</p><p id="email-user"><!-- 10 Agosto 2020 --></p>
+                                        </li>
+                                        <div class="myprofile mytopic" id="usertopic">
+                                            <p>Intereses: </p>
+                                            <div class="topic-wrapper">
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="userculture" type="checkbox" name="userculture" value="culture">
+                                                        <label class="topic" for="userculture"> Cultura</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="userhistory" type="checkbox" name="userhistory" value="history">
+                                                        <label class="topic" for="userhistory"> Historia</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="usernature" type="checkbox" name="usernature" value="nature">
+                                                        <label class="topic" for="usernature"> Naturaleza</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="userbusiness" type="checkbox" name="userbusiness" value="business">
+                                                        <label class="topic" for="userbusiness"> Negocios</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container"> 
+                                                        <input class="topic" id="usergastronomy" type="checkbox" name="usergastronomy" value="gastronomy">
+                                                        <label class="topic" for="usergastronomy"> Gastronomía</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="topic" id="usersports" type="checkbox" name="usersports" value="sports">
+                                                        <label class="topic" for="usersports"> Deportes</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div id="mostrarmasuser" onclick=mostrarMasUser()>MOSTRAR MAS</div>
+                                        <div id="mostrarmenosuser" onclick=mostrarMenosUser()>MOSTRAR MENOS</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="selector">
+                            <div>
+                                <div id="pestana-selector">
+                                    <ul id="pestana-selector-container">
+                                        <li id="selector-colecciones" onclick="changePestanaUser(this)">
+                                            <p>Colecciones</p>
+                                        </li>
+                                        <li id="selector-experiencias" onclick="changePestanaUser(this)">
+                                            <p>Experiencias</p>
+                                        </li>
+                                        <li id="selector-colaboraciones" onclick="changePestanaUser(this)">
+                                            <p>Colaboraciones</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-experiences-grid" id = "user-experiences-grid">
+                            <div class="user-grid-item">
+
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+
+                                <div class="user-grid-title">
+                                    <h3>Cuenca y sus maravillosos cuento dde cejicoew</h3>
+                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="exp-like-icon" src="images/iconos/mg.png" alt=mg  onclick="LikeOut(this)">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-comment">
+                                            <img src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt=comment>
+                                            <p id="exp-comments">2</p>
+                                        </div>
+                                        <div class="grid-menu">
+                                            <img id="" class="user-tres-puntos" onclick="openMoreOp(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                            <ul class="menu-ul" id="menu-ul">
+                                                <li class="menu-li" id="menu-compartir" onclick="openShare()">
+                                                    <p>Compartir</p>
+                                                    <img src="/images/iconos/compartir_gris.png" alt="compartir">
+                                                </li>
+                                                <li class="menu-li" id="menu-añadir-coleccion"  onclick="anadirColeccion(this)">
+                                                    <p>Añadir a colección</p>
+                                                    <img src="images/iconos/anadir_gris.png" alt="">
+                                                </li>
+                                                <li class="menu-li" id="menu-cancelar" onclick="closeMoreOp(this)">Cancelar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="user-grid-item">
+
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+                                <div class="logo-colab">
+                                    <div>
+                                        <img src="images/iconos/colaborador.png" alt="colaborar">
+                                    </div>
+                                </div>
+                                <div class="user-grid-title">
+                                    
+                                    <h3>Cuenca y sus maravillosos cuento dde cejicoew</h3>
+                                    <p> Creada por: Fulanito</p>
+                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="exp-like-icon" src="images/iconos/heart-regular-24.png" alt=mg  onclick="LikeOut(this)">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-comment">
+                                            <img src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt=comment>
+                                            <p id="exp-comments">2</p>
+                                        </div>
+                                        <div class="grid-menu">
+                                            <img id="" class="user-tres-puntos" onclick="openMoreOp(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                            <ul class="menu-ul" id="menu-ul">
+                                                <li class="menu-li" id="menu-compartir" onclick="openShare()">
+                                                    <p>Compartir</p>
+                                                    <img src="/images/iconos/compartir_gris.png" alt="compartir">
+                                                </li>
+                                                <li class="menu-li" id="menu-añadir-coleccion"  onclick="anadirColeccion(this)">
+                                                    <p>Añadir a colección</p>
+                                                    <img src="images/iconos/anadir_gris.png" alt="">
+                                                </li>
+                                                <li class="menu-li" id="menu-cancelar" onclick="closeMoreOp(this)">Cancelar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="user-grid-item">
+                                <div class=fondo1>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class=fondo2>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class=fondo3>
+                                    <div>
+                                    </div>
+                                </div>
+                                
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+                                <div class="logo-colec">
+                                    <div>
+                                        <img src="images/iconos/libro.png" alt="coleccion">
+                                    </div>
+                                </div>
+                                <div class="user-grid-title">
+                                    
+                                    <h3>Cuenca gerfrener rrbrebre re ri ren reo rebjeriog roe </h3>                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-longitud">
+                                            <img id="colecc-icon" src="images/iconos/coleccion.png" alt="colecc">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-mg">
+                                            <img id="menu-compartir" src="images/iconos/icons8-compartir-30.png" alt="colecc"  onclick="openShare()">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="blocker" onclick="closeUser()"></div>
+                </div>
+
+                <!-- POPUP PARA MY EXPERIENCES -->
+                <div class="popup-user-edit" id="popup-myexp">
+                    <div class="content">
+                        <a class="close" onclick="closeMyExp()"></a>
+
+                        <div class="popmyuser-cabecera">
+                            <div class="popmyuser-foto">
+                                <img id="popmyuser-portada" src="images/perfiles/joao46.png" alt="Portada">
+                                <div class="guardar-btn" onclick="saveChanges()">
+                                    <div class="guardar-btn-myexp">
+                                        <p>Guardar cambios</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="popuser-text">
+                                <div class="popuser-title"><h2>
+                                    <div class="popuser-title"><h2 id="changeuser-username">PacoJones</h2></div>
+                                </h2></div>
+                                <div class="popuser-linea"></div>
+                                <div class="popuser-icons">
+                                    <div class="popuser-icons-grid">
+                                        <img id="popmyuser-like-icon" src="images/iconos/heart-regular-24.png" alt="mg">
+                                        <p id="popmyuser-likes"></p>
+                                    </div>
+                                    <div class="popuser-icons-grid">
+                                        <img id="popmyuser-pub-icon" src="images/iconos/pub.png" alt="pub">
+                                        <p id="popmyuser-public"></p>
+                                    </div>
+                                    <div class="popuser-icons-grid">
+                                        <img id="popmyuser-share-icon" src="images/iconos/share-alt-regular-24.png" alt="share">
+                                    </div> 
+                                </div>
+                                <div class="info-user">
+                                    <form id="change-profile-form">
+                                        <ul class="popmyuser-data">
+                                            <li>
+                                                <label class="input" for="changename"><b>Nombre: </b><b class="error-message" id="error-changename"></b></label>
+                                                <input id="changename" type="text" placeholder="Introduce un nuevo nombre" name="changename" required>
+                                            </li>
+                                            <li id="myuser-info-surname"> 
+                                                <label class="input" for="changelastname"><b>Apellido: </b><b class="error-message" id="error-changelastname"></b></label>
+                                                <input id="changelastname" type="text" placeholder="Introduce un nuevo apellido" name="changelastname" required>
+                                            </li>
+                                            <li id="myuser-info-birthdate">
+                                                <label class="input" for="changebirthdate"><b>Fecha de nacimiento: </b><b class="error-message" id="error-changebirthdate"></b></label>
+                                                <input id="changebirthdate" type="date" placeholder="Introduce una nueva fecha nacimiento" name="changebirthdate" required>
+                                            </li>
+                                            <li id="myuser-info-email">
+                                                <p>Email: &nbsp</p><p id="email-myuser"><!-- 10 Agosto 2020 --></p>
+                                            </li>
+                                            <div class="myprofile mytopic" id="myusertopic">
+                                                <p><b>Intereses: </b></p>
+                                                <div class="topic-wrapper">
+                                                    <div>
+                                                        <div class="topic-container">
+                                                            <input class="changetopic" id="myuserculture" type="checkbox" name="myuserculture" value="culture">
+                                                            <label class="changetopic" for="myuserculture"> Cultura</label>
+                                                        </div>
+                                                        <div class="topic-container">
+                                                            <input class="changetopic" id="myuserhistory" type="checkbox" name="myuserhistory" value="history">
+                                                            <label class="changetopic" for="myuserhistory"> Historia</label>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="topic-container">
+                                                            <input class="changetopic" id="myusernature" type="checkbox" name="myusernature" value="nature">
+                                                            <label class="changetopic" for="myusernature"> Naturaleza</label>
+                                                        </div>
+                                                        <div class="topic-container">
+                                                            <input class="changetopic" id="myuserbusiness" type="checkbox" name="myuserbusiness" value="business">
+                                                            <label class="changetopic" for="myuserbusiness"> Negocios</label>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="topic-container"> 
+                                                            <input class="changetopic" id="myusergastronomy" type="checkbox" name="myusergastronomy" value="gastronomy">
+                                                            <label class="changetopic" for="myusergastronomy"> Gastronomía</label>
+                                                        </div>
+                                                        <div class="topic-container">
+                                                            <input class="changetopic" id="myusersports" type="checkbox" name="myusersports" value="sports">
+                                                            <label class="changetopic" for="myusersports"> Deportes</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div id="mostrarmasmyuser" onclick=mostrarMasMyUser()>MOSTRAR MAS</div>
+                                            <div id="mostrarmenosmyuser" onclick=mostrarMenosMyUser()>MOSTRAR MENOS</div>
+                                        </ul>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="selector-myuser">
+                            <div>
+                                <div id="pestana-selector-myuser">
+                                    <ul id="pestana-selector-container-myuser">
+                                        <li id="tab-collections-button" onclick="changeMyExperiencesState(this)">
+                                            <p>Colecciones</p>
+                                        </li>
+                                        <li id="tab-experiences-button" onclick="changeMyExperiencesState(this)">
+                                            <p>Experiencias</p>
+                                        </li>
+                                        <li id="tab-collaborations-button" onclick="changeMyExperiencesState(this)">
+                                            <p>Colaboraciones</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class = "myuser-experiences-grid" id="myuser-experiences-grid">
+                            
+                        </div>
+
+                        <div class="popup-menu" id="confirm-delete-collection">
+                            <div class="log-out-content">
+                                <a class="close" id="exp-del-close" onclick="closeConfirmDeleteCollection()"></a>
+                                <div class="log-out-question">¿Seguro que quiere eliminar esta colección?</div>
+                                <div class=logout-buttons>
+                                    <button type="button" class="btn No" onclick="closeConfirmDeleteCollection()">No</button>
+                                    <button type="button" class="btn Yes" onclick="deleteCollection()">Sí</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-menu" id="confirm-delete-experience">
+                            <div class="log-out-content">
+                                <a class="close" id="exp-del-close" onclick="closeConfirmDeleteExperience()"></a>
+                                <div class="log-out-question">¿Seguro que quiere eliminar esta experiencia?</div>
+                                <div class=logout-buttons>
+                                    <button type="button" class="btn No" onclick="closeConfirmDeleteExperience()">No</button>
+                                    <button type="button" class="btn Yes" onclick="deleteExperience()">Sí</button>
+                                </div>
+                            </div>
+                        </div>
+    <!--
+                        <div class="user-experiences-grid" id = "user-experiences-grid">
+                            <div class="user-grid-item">
+
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+
+                                <div class="user-grid-title">
+                                    <h3>Cuenca y sus maravillosos cuento dde cejicoew</h3>
+                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="exp-like-icon" src="images/iconos/mg.png" alt=mg  onclick="LikeOut(this)">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-comment">
+                                            <img src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt=comment>
+                                            <p id="exp-comments">2</p>
+                                        </div>
+                                        <div class="grid-menu">
+                                            <img id="" class="user-tres-puntos" onclick="openMoreOp(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                            <ul class="menu-ul" id="menu-ul">
+                                                <li class="menu-li" id="menu-compartir" onclick="openShare()">
+                                                    <p>Compartir</p>
+                                                    <img src="/images/iconos/compartir_gris.png" alt="compartir">
+                                                </li>
+                                                <li class="menu-li" id="menu-añadir-coleccion"  onclick="anadirColeccion(this)">
+                                                    <p>Añadir a colección</p>
+                                                    <img src="images/iconos/anadir_gris.png" alt="añadir">
+                                                </li>
+                                                <li class="menu-li" id="menu-cancelar" onclick="closeMoreOp(this)">Cancelar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="user-grid-item">
+
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+                                <div class="logo-colab">
+                                    <div>
+                                        <img src="images/iconos/colaborador.png" alt="colaborar">
+                                    </div>
+                                </div>
+                                <div class="user-grid-title">
+                                    
+                                    <h3>Cuenca y sus maravillosos cuento dde cejicoew</h3>
+                                    <p> Creada por: Fulanito</p>
+                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="exp-like-icon" src="images/iconos/heart-regular-24.png" alt=mg  onclick="LikeOut(this)">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-comment">
+                                            <img src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt=comment>
+                                            <p id="exp-comments">2</p>
+                                        </div>
+                                        <div class="grid-menu">
+                                            <img id="" class="user-tres-puntos" onclick="openMoreOp(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                            <ul class="menu-ul" id="menu-ul">
+                                                <li class="menu-li" id="menu-compartir" onclick="openShare()">
+                                                    <p>Compartir</p>
+                                                    <img src="/images/iconos/compartir_gris.png" alt="compartir">
+                                                </li>
+                                                <li class="menu-li" id="menu-añadir-coleccion"  onclick="anadirColeccion(this)">
+                                                    <p>Añadir a colección</p>
+                                                    <img src="images/iconos/anadir_gris.png" alt="añadir">
+                                                </li>
+                                                <li class="menu-li" id="menu-cancelar" onclick="closeMoreOp(this)">Cancelar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="user-grid-item">
+                                <div class=fondo1>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class=fondo2>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class=fondo3>
+                                    <div>
+                                    </div>
+                                </div>
+                                
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+                                <div class="logo-colec">
+                                    <div>
+                                        <img src="images/iconos/libro.png" alt="coleccion">
+                                    </div>
+                                </div>
+                                <div class="user-grid-title">
+                                    
+                                    <h3>Cuenca gerfrener rrbrebre re ri ren reo rebjeriog roe </h3>                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="colecc-icon" src="images/iconos/coleccion.png" alt="colecc">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-mg">
+                                            <img id="menu-compartir" src="images/iconos/icons8-compartir-30.png" alt="colecc"  onclick="openShare()">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        -->
+
+                        <!--
+                        <div id="tabs-options">
+                            <div class="tab-option" id="tab-collections-button" onclick="changeMyExperiencesState(this)"><h3>Mis Colecciones</h3></div>
+                            <div class="tab-option" id="tab-experiences-button" onclick="changeMyExperiencesState(this)"><h3>Mis Experiencias</h3></div>
+                            <div class="tab-option" id="tab-collaborations-button" onclick="changeMyExperiencesState(this)"><h3>Mis Colaboraciones</h3></div>
+                        </div>-->
+                        
+                        <!--<div id="tabs-content-container">
+                            <div id="myexperiences">
+                                <div class="experiences-grid" id="myexperiences-grid">
+                                    <div class="grid-item" onclick="openMyExpEditor()" id="grid-item-plus">
+                                        <img id="myexp-add" src="./images/plus-regular-72.png" alt="Plus">
+                                        <div><p><i>Add new experience</i></p></div>
+                                    </div>
+                                </div>
+                                <div class="new-experience">
+                                    <form class="login-form experience-form" id="experience-form">
+                                        <h2>New experience</h2>
+                                        <label class="input" for="myexp-title"><b>Title</b><b class="error-message" id="error-myexp-title"></b></label>
+                                        <input id="myexp-title" type="text" placeholder="Enter experience Title" name="Title" required>
+            
+                                        <label class="input" for="myexp-location"><b>Location</b><b class="error-message" id="error-myexp-location"></b></label>
+                                        <input id="myexp-location" type="text" placeholder="Enter experience Location" name="Location" required>
+
+                                        <label class="input" for="myexp-descripcion"><b>Description</b><b class="error-message" id="error-new-experience-description"></b></label>
+                                        <textarea id="new-experience-description" name="myexp-descripcion" rows="10" cols="50" placeholder="Write here your experience description"></textarea>
+            
+                                        <label class="input" for="myexp-picture"><b>Experience picture</b><b class="error-message" id="error-myexp-picture"></b></label>
+                                        <input id="myexp-picture" type="file" name="myexp-picture" required>
+            
+                                        <div class=signup-buttons>
+                                            <button type="button" class="btn reset" onclick="reset_form()">Reset</button>
+                                            <button type="button" class="btn save" onclick="handleNewExperience()">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="popup-menu" id="confirm-delete">
+                                    <div class="log-out-content">
+                                        <a class="close" id="exp-del-close" onclick="closeConfirmDelete()"></a>
+                                        <div class="log-out-question">Are you sure you want to delete this experience?</div>
+                                        <div class=logout-buttons>
+                                            <button type="button" class="btn No" onclick="closeConfirmDelete()">No</button>
+                                            <button type="button" class="btn Yes" onclick="deleteExperience()">Yes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div> 
+                            <div id="mycollections">
+                                <div id="mycollections-grid">-->
+                                    <!-- <div class="collection">
+                                        <div class="collection-image">
+                                            <img src="images/experiences/1-Madrid/madrid.jpg">
+                                        </div>
+                                        <div class="collection-title">
+                                            <h2>Título de la colección</h2>
+                                        </div>
+                                        <div class="collection-summary">
+                                            <p>Hola cómo estás</p>
+                                        </div>
+                                        <img id="" class="user-tres-puntos" onclick="collectionMenuOptions(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                    </div>
+                                    <div class="collection">
+                                        <div class="collection-image">
+                                            <img src="images/experiences/1-Madrid/madrid.jpg">
+                                        </div>
+                                        <div class="collection-title">
+                                            <h2>Título de la colección 2</h2>
+                                        </div>
+                                        <div class="collection-summary">
+                                            <p>Hola cómo estás 2</p>
+                                        </div>
+                                        <img id="ColeccionTest" class="user-tres-puntos" onclick="collectionMenuOptions(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                        <ul class="menu-ul" id="menu-ul-popColeccionTest"">
+                                            <li class="menu-li" id="menu-compartirColeccionTest" onclick="openShare()">
+                                                <p>Compartir</p>
+                                                <img id="user-CollecionTest" src="/images/iconos/compartir_gris.png" alt="compartir">
+                                            </li>
+                                            </li>
+                                            <li class="menu-li" id="menu-eliminarColeccionTest" onlcick="confirmDelete(this)">
+                                                <b>Eliminar</b>
+                                                <img src="/images/iconos/icons8-delete-trash-24.png" alt="eliminar">
+                                            </li>
+                                            <li class="menu-li" id="menu-cancelarColeccionTest" onclick="closeCollectionMenuOptions(this)">Cancelar</li>
+                                        </ul>
+                                    </div> -->
+                                    
+                                <!--</div>
+                            </div>
+                            <div id="mycollaborations">
+                                <div id="mycollaborations-grid">
+                                    
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="blocker" onclick="closeMyExp()"></div>
+                </div>
+
+                <div class="popup-coleccion" id="popup-coleccion-item">
+                    <div class="content">
+                        <a class="close" onclick="closeCollection()"></a>
+                
+                        <div class="popcolec-cabecera">
+                            <img id="popcolec-portada" src="images/experiences/1-Madrid/madrid.jpg" alt="Portada">
+                            <div class="popcolec-text">
+                                <div class="popcolec-colec"><h2 id="colec">Colección</h2></div>
+                                <div class="popcolec-title"><h2 id="colec-name">PacoJdeffewfewf wefgnhgrghngrghfnrghnh grfhnrtgfhewones</h2></div>
+                                <div class="popcolec-linea"></div>
+                                <div class="popcolec-icons">
+                                    <div class="popcolec-icons-grid">
+                                        <img id="popcolec-pub-icon" src="images/iconos/coleccion.png" alt="colec">
+                                        <p id="popcolec-coleccion">5</p>
+                                    </div>
+                                    <div class="popcolec-icons-grid">
+                                        <img id="popcolec-share-icon" src="images/iconos/share-alt-regular-24.png" alt="share" onclick="openShare()">
+                                    </div> 
+                                </div>
+                                <div class="popcolec-title"><h3>Descripcion</h3><p id="colec-descripcion">PacoJdeffewfewf wefgnhgrghngrghfnrghnh grfhnrtgfhewones</p></div>
+                            </div>
+                        </div>
+
+                        <div class="popcolec-exp">
+                            <h2>Experiencias</h2>
+                        </div>
+                        <div class="user-experiences-grid" id = "user-collection-experiences-grid">
+                            <div class="user-grid-item">
+
+                                <div class="user-experience-picture">
+                                    <img src="images/experiences/1-Madrid/madrid.jpg" alt="">
+                                </div>
+                                
+                                <div class="user-grid-title">
+                                    
+                                    <h3>Cuenca y sus maravillosos cuento dde cejicoew</h3>
+                                    <p> Creada por: Fulanito</p>
+                                
+                                    <div class="user-grid-iconos">
+                                        <div class="user-grid-mg">
+                                            <img id="exp-like-icon" src="images/iconos/heart-regular-24.png" alt=mg  onclick="LikeOut(this)">
+                                            <p id="exp-likes">2</p>
+                                        </div>
+                                        <div class="user-grid-comment">
+                                            <img src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt=comment>
+                                            <p id="exp-comments">2</p>
+                                        </div>
+                                        <div class="grid-menu">
+                                            <img id="" class="user-tres-puntos" onclick="openMoreOp(this)" src="images/iconos/mas-negro.png" alt="mas">
+                                            <ul class="menu-ul" id="menu-ul">
+                                                <li class="menu-li" id="menu-compartir" onclick="openShare()">
+                                                    <p>Compartir</p>
+                                                    <img src="/images/iconos/compartir_gris.png" alt="compartir">
+                                                </li>
+                                                <li class="menu-li" id="menu-añadir-coleccion"  onclick="anadirColeccion(this)">
+                                                    <p>Añadir a colección</p>
+                                                    <img src="images/iconos/anadir_gris.png" alt="">
+                                                </li>
+                                                <li class="menu-li" id="menu-cancelar" onclick="closeMoreOp(this)">Cancelar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="blocker" onclick="closeCollection()"></div>
+                </div>
+
+                <div class="popup-crear-exp" id="popup-crear-exp">
+                    <div class="content">
+                        <a class="close" onclick="closeMyExpNew()"></a>
+                        <form class="crear-exp-form" id="crear-exp-form">
+                            <h1>Añade tu experiencia nueva</h1>
+
+                            <div class="borrar-foto-exp" onclick="borrar_imagen_exp()">
+                                <img src="images/iconos/x.png" alt="borrar-foto">
+                            </div>
+
+                            <label class="input" for="crear_exp_portada"><b>Portada de la experiencia</b><p class="error-message" id="error-crear_exp_portada"></p></label>
+                            <input id="crear_exp_portada" type="file" name="crear_exp_portada">
+
+                            <label class="input" for="crear_exp_titulo"><b>Título *</b><p class="error-message" id="error-crear_exp_titulo"></p></label>
+                            <input id="crear_exp_titulo" type="text" placeholder="Ponle título tu experiencia" name="crear_exp_titulo" required>
+
+                            <span id="search-colab-btn" onclick="searchColab()">
+                                <div>
+                                    <img src="images/iconos/search-2.png" alt="Search">
+                                </div>
+                            </span>
+                            <div id="colab-search-form" action="index.html" onsubmit="return searchColab()">
+                                <label id="search-colab-label" for="search-colab-input"><b>Colaboradores</b></label>
+                                <input id="search-colab-input" type="search" placeholder="Busca un usuario" name="search-colab-input">      
+                            </div>
+
+                            <ul id="lista-busqueda-colab"></ul>
+                            <div class="nuevo-colaborador">
+                                Colaboradores añadidos
+                            </div>
+                            <ul id="lista-colab"></ul>
+                            
+                            <label class="input" for="crear_exp_descripcion"><b>Descripción *</b><p class="error-message" id="error-crear_exp_descripcion"></p></label>
+                            <textarea id="crear_exp_descripcion" rows="10" cols="50" placeholder="Cuenta lo que quieres compartir con los demás" name="crear_exp_descripcion" required></textarea>
+
+                            <label class="input" for="crear_exp_transporte"><b>Transporte</b></label>
+                            <textarea id="crear_exp_transporte" rows="10" cols="50" placeholder="Y como te mueves por esos sitios..." name="crear_exp_transporte"></textarea>
+                            
+                            <label class="input" for="crear_exp_presupuesto"><b>Presupuesto</b></label>
+                            <textarea id="crear_exp_presupuesto" rows="10" cols="50" placeholder="Ahora hablemos de dinero..." name="crear_exp_presupuesto"></textarea>
+                            
+                            <label class="input" for="crear_exp_alojamiento"><b>Alojamiento</b></label>
+                            <textarea id="crear_exp_alojamiento" rows="10" cols="50" placeholder="Donde dormir, que eso es importante" name="crear_exp_alojamiento"></textarea>
+                            
+                            <label class="input" for="crear_exp_gasto"><b>Presupuesto *</b><p class="error-message" id="error-crear_exp_gasto"></p></label>
+                            <input id="crear_exp_gasto" type="number" min="0" max="1000" placeholder="Solo el número" name="crear_exp_gasto" required>
+                            
+                            <div class="borrar-foto-exp" onclick="borrar_imagen_exp_gallery()">
+                                <img src="images/iconos/x.png" alt="borrar-foto">
+                            </div>
+                            
+                            <label class="input" for="crear_exp_galeria"><b>¡Sube fotos de tu viaje!</b><b class="error-message" id="error-crear_exp_galeria"></b></label>
+                            <input id="crear_exp_galeria" type="file" multiple="true" name="crear_exp_galeria">
+
+                            <b>Intereses</b>
+                            <div class="crear-exp-interest-wrapper">
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-newexp" id="newexp_culture" type="checkbox" name="culture" value="newexp_culture">
+                                        <label class="interest-newexp" for="newexp_culture"> Cultura</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-newexp" id="newexp_history" type="checkbox" name="history" value="newexp_history">
+                                        <label class="interest-newexp" for="newexp_history"> Historia</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-newexp" id="newexp_nature" type="checkbox" name="nature" value="newexp_nature">
+                                        <label class="interest-newexp" for="newexp_nature"> Naturaleza</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-newexp" id="newexp_business" type="checkbox" name="business" value="newexp_business">
+                                        <label class="interest-newexp" for="newexp_business"> Negocios</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container"> 
+                                        <input class="interest-newexp" id="newexp_gastronomy" type="checkbox" name="gastromony" value="newexp_gastronomy">
+                                        <label class="interest-newexp" for="newexp_gastronomy"> Gastronomía</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-newexp" id="newexp_sports" type="checkbox" name="sports" value="newexp_sports">
+                                        <label class="interest-newexp" for="newexp_sports"> Deportes</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class=signup-buttons>
+                                <button type="button" class="btn reset" onclick="resetMyExpNew()">Restablecer</button>
+                                <button type="button" class="btn save" onclick="saveMyExpNew()">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeMyExpNew()"></div>
+                </div>
+        
+                <!-- <div class="popup-editar-exp" id="popup-editar-exp">
+                    <div class="content">
+                        <a class="close" onclick="closeEditExperience()"></a>
+                        <form class="crear-exp-form" id="editar-exp-form">
+                            <h1>Edita tu experiencia</h1>
+
+                            <label class="input" for="editar-exp-portada"><b>Portada de la experiencia</b><b class="error-message" id="error-editar-exp-portada"></b></label>
+                            <input id="editar-exp-portada" type="file" name="editar-exp-portada">
+
+                            <label class="input" for="editar-exp-titulo"><b>Título</b><p class="error-message" id="error-editar-exp-titulo"></p></label>
+                            <input id="editar-exp-titulo" type="text" placeholder="Edita el título tu experiencia" name="editar-exp-titulo" required>
+                            
+                            <label class="input" for="editar-exp-colaborador"><b>Colaborador</b></label>
+                            <input id="editar-exp-colaborador" type="text" placeholder="Añade un colaborador" name="editar-exp-colaborador">
+
+                            <div class="nuevo-colaborador">
+                                Añadir colaborador
+                            </div>
+
+                            <label class="input" for="editar-exp-fecha"><b>Fecha</b><p class="error-message" id="error-editar-exp-fecha"></p></label>
+                            <input id="editar-exp-fecha" type="date" placeholder="¿Cuándo fue?" name="editar-exp-fecha" required>
+                            
+                            <label class="input" for="editar-exp-decripcion"><b>Descripción</b><p class="error-message" id="error-editar-exp-colaborador"></p></label>
+                            <textarea id="editar-exp-descripcion" rows="10" cols="50" placeholder="Cuenta lo que quieres compartir con los demás" name="editar-exp-descripcion" required></textarea>
+
+                            <label class="input" for="editar-exp-transporte"><b>Transporte</b></label>
+                            <textarea id="editar-exp-transporte" rows="10" cols="50" placeholder="Y cómo te mueves por esos sitios..." name="editar-exp-transporte"></textarea>
+                            
+                            <label class="input" for="editar-exp-presupuesto"><b>Presupuesto</b></label>
+                            <textarea id="editar-exp-presupuesto" rows="10" cols="50" placeholder="Ahora hablemos de dinero..." name="editar-exp-presupuesto"></textarea>
+                            
+                            <label class="input" for="editar-exp-alojamiento"><b>Alojamiento</b></label>
+                            <textarea id="editar-exp-alojamiento" rows="10" cols="50" placeholder="Donde dormir, que eso es importante" name="editar-exp-alojamiento"></textarea>
+                            
+                            <label class="input" for="crear-exp-gasto"><b>Presupuesto</b><p class="error-message" id="error-editar-exp-gasto"></p></label>
+                            <input id="editar-exp-gasto" type="number" min="0" max="1000" placeholder="Solo el número" name="editar-exp-gasto" required>
+                            
+                            <label class="input" for="editar-exp-galeria"><b>¡Sube fotos de tu viaje!</b><b class="error-message" id="error-editar-exp-portada"></b></label>
+                            <input id="editar-exp-galeria" type="file" multiple="true" name="editar-exp-galeria">
+
+                            <b>Intereses</b>
+                            <div class="editar-exp-interest-wrapper">
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-editexp" id="edit-exp-culture" type="checkbox" name="edit-exp-culture" value="culture">
+                                        <label class="interest-editexp" for="culture"> Cultura</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-editexp" id="edit-exp-history" type="checkbox" name="edit-exp-history" value="history">
+                                        <label class="interest-editexp" for="edit-exp-history"> Historia</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-editexp" id="edit-exp-nature" type="checkbox" name="edit-exp-nature" value="nature">
+                                        <label class="interest-editexp" for="edit-exp-nature"> Naturaleza</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-editexp" id="edit-exp-business" type="checkbox" name="edit-exp-business" value="business">
+                                        <label class="interest-editexp" for="edit-exp-business"> Negocios</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container"> 
+                                        <input class="interest-editexp" id="edit-exp-gastronomy" type="checkbox" name="edit-exp-gastromony" value="gastronomy">
+                                        <label class="interest-editexp" for="edit-exp-gastronomy"> Gastronomía</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-editexp" id="edit-exp-sports" type="checkbox" name="edit-exp-sports" value="sports">
+                                        <label class="interest-editexp" for="edit-exp-sports"> Deportes</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class=signup-buttons>
+                                <button type="button" class="btn reset" onclick="resetEditExperience()">Restablecer</button>
+                                <button type="button" class="btn save" onclick="editExperience()">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeEditExperience()"></div>
+                </div>-->
+
+                <div class="popup-crear-exp" id="popup-crear-coleccion">
+                    <div class="content">
+                        <a class="close" onclick="closeCrearColeccion()"></a>
+                        <form class="crear-coleccion-form" id="crear-coleccion-form">
+                            <h1>Añade tu nueva colección</h1>
+
+                            <div class="borrar-foto-coleccion" onclick="borrar_imagen_coleccion()">
+                                <img src="images/iconos/x.png" alt="borrar-foto">
+                            </div>
+
+                            <label class="input" for="crear_coleccion_portada"><b>Portada de la coleccion</b><p class="error-message" id="error-crear_coleccion_portada"></p></label>
+                            <input id="crear_coleccion_portada" type="file" name="crear_coleccion_portada">
+
+                            <label class="input" for="crear_coleccion_titulo"><b>Título</b><p class="error-message" id="error-crear_coleccion_titulo">Campo Obligatorio</p></label>
+                            <input id="crear_coleccion_titulo" type="text" placeholder="Ponle título a tu colección" name="crear_coleccion_titulo" required>
+                            
+                            <label class="input" for="crear_coleccion_descripcion"><b>Descripción</b><p class="error-message" id="error-crear_coleccion_descripcion">Campo Obligatorio</p></label>
+                            <textarea id="crear_coleccion_descripcion" rows="10" placeholder="¿Sobre qué va a tratar esta colección?" name="crear_coleccion_descripcion" required></textarea>    
+                            <div class=signup-buttons>
+                                <button type="button" class="btn reset" onclick="resetCreateColeccion()">Restablecer</button>
+                                <button type="button" class="btn save" onclick="saveCreateColeccion()">Guardar</button>
+                            </div>                        
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeCrearColeccion()"></div>
+                </div>
+
+                <div class="popup-editar-exp" id="popup-editar-grid-item">
+                    <div class="content">
+                        <a class="close" onclick="closeEditExperience()"></a>
+                        <div class="popexp-editar-cabecera">
+                            <div class=popmyuser-foto>
+                                <img id="popexp-editar-portada" src="" alt="Portada">
+                                <div class="guardar-btn" onclick="saveChangesExp()">
+                                    <div class="guardar-btn-editar">
+                                        <p>Guardar cambios</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popexp-editar-text">
+                                <div class="popexp-editar-title"><h2 id="editar_experience_title">.</h2></div>
+                                <div class="popexp-editar-linea"></div>
+                                <div class="popexp-editar-icons">
+                                    <div class="popexp-editar-icons-grid">
+                                        <img id="popexp-editar-like-icon" src="images/iconos/heart-regular-24.png" alt="mg">
+                                        <p id="popexp-editar-likes"></p>
+                                    </div>
+                                    <div class="popexp-editar-icons-grid">
+                                        <a href="#add-comment"><img id="popexp-editar-comment-icon" src="images/iconos/icons8-burbuja-de-diаlogo-24.png" alt="comment"></a>
+                                        <p id="popexp-editar-comments"></p>
+                                        
+                                    </div>
+                                    <div class="popexp-editar-icons-grid" id="euro">
+                                        <img src="images/iconos/icons8-euro-24.png" alt="presupuesto">
+                                     
+                                        <label class="input" for="popexp_editar_gasto"><p class="error-message" id="error-popexp_editar_gasto" style="display: none;"></p>Gasto</label>
+                                        <input id="popexp_editar_gasto" type="number" min="0" max="1000" placeholder="" name="popexp_editar_gasto" required>
+                                        
+                                    </div>
+                                    <div class="popexp-editar-icons-grid">
+                                        <img id="popexp-editar-share-icon" src="images/iconos/share-alt-regular-24.png" alt="share">
+                                    </div> 
+                                </div>
+            
+                                <div class="info-editar-exp-user">
+                                    <ul class="popexp-editar-user">
+                                        <li id="edit-creador">
+                                            <p>Creada por: &nbsp</p><p id="editar_persona"></p>
+                                        </li>
+                                        <li id="exp-editar-info-colaboradores">
+                                            <!--<label class="input" for="editar_colaboradores">Colaboradores: <b class="error-message" id="error-changename"></b></label>
+                                            <input id="editar_colaboradores" type="text" placeholder="" name="editar-colaboradores" required>-->
+                                            <span id="search-colab-exp-btn" onclick="searchColabExp()">
+                                                <div>
+                                                    <img src="images/iconos/search-2.png" alt="Search">
+                                                </div>
+                                            </span>
+                                            <div id="colab-exp-search-form" action="index.html" onsubmit="return searchColabExp()">
+                                                <label id="search-colab-exp-label" for="search-colab-exp-input">Colaboradores</label>
+                                                <input id="search-colab-exp-input" type="search" placeholder="Busca un usuario" name="search-colab-exp-input">      
+                                            </div>
+                
+                                            <ul id="lista-busqueda-colab-exp"></ul>
+                                            <div class="nuevo-colaborador">
+                                                <p id="colaborador-anadido">Colaboradores añadidos</p>
+                                            </div>
+                                            <ul id="lista-colab-exp"></ul>
+
+                                        </li>
+                                        <li id="exp-editar-info-fecha">
+                                            <p>Fecha: &nbsp</p><p id="editar_fecha"><!-- 10 Agosto 2020 --></p>
+                                        </li>
+                                        <div class="myprofile mytopic" id="editar_exptopic">
+                                            <p>Intereses: </p>
+                                            <div class="topic-wrapper">
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="editar-topic" id="editar_expculture" type="checkbox" name="editar_expculture" value="culture">
+                                                        <label class="editar-topic" for="editar_expculture"> Cultura</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="editar-topic" id="editar_exphistory" type="checkbox" name="editar_exphistory" value="history">
+                                                        <label class="editar-topic" for="editar_exphistory"> Historia</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container">
+                                                        <input class="editar-topic" id="editar_expnature" type="checkbox" name="editar_expnature" value="nature">
+                                                        <label class="editar-topic" for="editar_expnature"> Naturaleza</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="editar-topic" id="editar_expbusiness" type="checkbox" name="editar_expbusiness" value="business">
+                                                        <label class="editar-topic" for="editar_expbusiness"> Negocios</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="topic-container"> 
+                                                        <input class="editar-topic" id="editar_expgastronomy" type="checkbox" name="editar_expgastronomy" value="gastronomy">
+                                                        <label class="editar-topic" for="editar_expgastronomy"> Gastronomía</label>
+                                                    </div>
+                                                    <div class="topic-container">
+                                                        <input class="editar-topic" id="editar_expsports" type="checkbox" name="editar_expsports" value="sports">
+                                                        <label class="editar-topic" for="editar_expsports"> Deportes</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div id="editar-mostrarmas" onclick=mostrarMasEditExp()>MOSTRAR MAS</div>
+                                        <div id="editar-mostrarmenos" onclick=mostrarMenosEditExp()>MOSTRAR MENOS</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="exp-container-editar">
+                            <div>
+                                <div id="pestana-filter-popupexp-editar">
+                                    <ul id="pestana-filter-container-popupexp-editar">
+                                        <li id="pestana-descripcion-editar" onclick="changeEditPestana(this)">
+                                            <p class="pestana-filter-p">Descripción</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/info-circle-regular-24.png" alt="info">
+                                        </li>
+                                        <li id="pestana-transporte-editar" onclick="changeEditPestana(this)">
+                                            <p class="pestana-filter-p">Transporte</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/bus-regular-24.png" alt="transporte">
+                                        </li>
+                                        <li id="pestana-presu-editar" onclick="changeEditPestana(this)">
+                                            <p class="pestana-filter-p">Presupuesto</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/euro-regular-24.png" alt="presupuesto">
+                                        </li>
+                                        <li id="pestana-Alojamiento-editar" onclick="changeEditPestana(this)">
+                                            <p class="pestana-filter-p">Alojamiento</p>
+                                            <img class="pestana-filter-icons" src="images/iconos/home-regular-24.png" alt="alojamiento">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <form id="editar-pestana">
+                                    <div class="filter-popupexp-editar" id="filter-descripcion-editar">
+                                        <label class="input" for="editar_exp_descripcion"><p class="error-message" id="error-editar_exp_descripcion" style="display: none;"></p>Descripcion</label>
+                                        <textarea id="editar_exp_descripcion" rows="10" cols="50" placeholder="" name="editar_exp_descripcion"></textarea>
+                                        
+                                    </div>
+                                    <div class="filter-popupexp-editar" id="filter-transporte-editar">
+                                        <label class="input" for="editar_exp_transporte" style="display: none;"> Transporte</label>
+                                        <textarea id="editar_exp_transporte" rows="10" cols="50" placeholder="" name="editar_exp_transporte"></textarea>
+                                                                                     
+                                    </div>
+                                    <div class="filter-popupexp-editar" id="filter-presu-editar">
+                                        <label class="input" for="editar_exp_presupuesto" style="display: none;">Presupuesto</label>
+                                        <textarea id="editar_exp_presupuesto" rows="10" cols="50" placeholder="" name="editar_exp_presupuesto"></textarea>
+                                           
+                                    </div>
+                                    <div class="filter-popupexp-editar" id="filter-alojamiento-editar" >
+                                        <label class="input" for="editar_exp_alojamiento" style="display: none;"> Alojamiento</label>
+                                        <textarea id="editar_exp_alojamiento" rows="10" cols="50" placeholder="" name="editar_exp_alojamiento"></textarea>
+                                        
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="grid-gallery" id="galeria-popupexp-editar">
+                            <a class="grid-gallery__item" href="">
+                                <img class="grid-gallery__image" src="images/Spain/laredo.png" alt="España">
+                            </a>
+
+                        </div>
+                        <div class="borrar-foto-edit-exp" onclick="borrar_imagen_edit_exp()">
+                            <img src="images/iconos/x.png" alt="borrar-foto">
+                        </div>
+                        <form id="new-images">
+                            <label class="input" for="nueva_exp_galeria"><b>¡Sube fotos de tu viaje!</b><b class="error-message" id="error-nueva_exp_galeria"></b></label>
+                            <input id="nueva_exp_galeria" type="file" multiple="true" name="nueva_exp_galeria">
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closeEditExperience()"></div>
+                </div>
+                
+                <div class="popup-coleccion" id="popup-coleccion-item-edit">
+                    <div class="content">
+                        <a class="close" onclick="closeEditCollectionExperience()"></a>
+                
+                        <div class="popcolec-cabecera">
+                            <div class=popmyuser-foto>
+                                <img id="popcolec-edit-portada" src="images/experiences/1-Madrid/madrid.jpg" alt="Portada">
+                                <div class="guardar-btn"  onclick="guardarCambiosEditColecc()">
+                                    <div class="guardar-btn-editar">
+                                        <p>Guardar cambios</p>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            
+                            <div class="popcolec-text">
+                                <div class="popcolec-colec"><h2 id="colec-edit">Colección</h2></div>
+                                <div class="popcolec-title"><h2 id="colec-title-edit">.</h2></div>
+                                <div class="popcolec-linea"></div>
+                                <div class="popcolec-icons">
+                                    <div class="popcolec-icons-grid">
+                                        <img id="popcolec-pub-icon" src="images/iconos/coleccion.png" alt="colec">
+                                        <p id="popcolec-coleccion-edit">5</p>
+                                    </div>
+                                    <div class="popcolec-icons-grid">
+                                        <img id="popcolec-share-icon-edit" src="images/iconos/share-alt-regular-24.png" alt="share">
+                                    </div> 
+                                </div>
+                                <div class="popcolec-title"><h3>Descripcion</h3>
+                                    <form class="filter-popupexp-editar" id="cambiar-descripcion-popupexp">
+                                        <label class="input" for="editar_colec_descripcion"><p class="error-message" id="error-editar_colec_descripcion" style="display: none;"></p>Descripcion</label>
+                                        <textarea id="editar_colec_descripcion" rows="6" cols="36" placeholder="" name="editar_colec_descripcion"></textarea>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popcolec-exp">
+                            <h2>Experiencias</h2>
+                        </div>
+                        <div class="user-experiences-grid" id = "user-collection-experiences-grid-edit">
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="blocker" onclick="closeEditCollectionExperience()"></div>
+                </div>
+
+                <div class="popup-menu" id="deleteExpColecc">
+                    <div class="log-out-content">
+                        <a class="close" onclick="closeForm()"></a>
+                        <div class="log-out-question" id="deleteExpcontent">¿Estás seguro de querer eliminar esta experiencia?</div>
+                        <div class=logout-buttons id="editcolecc_buttons">
+                            <button type="button" class="btn No" onclick="closeForm()">No</button>
+                            <button type="button" class="btn Yes" onclick="handle_deleteExpColecc()">Sí</button>
+                        </div>
+                    </div>
+                    <div class="blocker" onclick="closeForm()"></div>
+                </div>
+
+            </section>
+            <section class="planificar">
+                <div class="planificar-title">
+                    <h2><i>Planifica tu próximo viaje</i></h2>
+                    <div class="linea"></div>
+                </div>
+                <div class="planificar-texto">
+                    <p>
+                        Sabemos que planificar un viaje desde 0 no es nada fácil. Puedes pasarte días y días buscando información sobre tu próximo destino y acabar con la cabeza loca. Si estás en esa situación, rellena este breve formulario y deja que uno de nuestros expertos te ayude. <h3>¡Te esperamos!</h3>
+                    </p>
+                </div>
+                <div class="planificar-container">
+                    <div class="planificar-btn" onclick="openPlanificar()">
+                        <p>Empieza tu siguiente viaje</p>
+                    </div>
+                </div>
+                <div class="popup-planificar" id="popup-planificar">
+                    <div class="content">
+                        <a class="close" onclick="closePlanificar()"></a>
+                        <form class="planificar-form" id="planificar-form">
+                            <h1>¡Cuéntanos!</h1>
+                            <label class="input" for="plan-titulo"><b>Título</b><p class="error-message" id="error-plan-titulo"></p></label>
+                            <input id="plan-titulo" type="text" placeholder="Ponle título a tu viaje" name="plan-titulo" required>
+                            
+                            <label class="input" for="plan-descripcion"><b>Descripción</b><p class="error-message" id="error-plan-descripcion"></p></label>
+                            <textarea id="plan-descripcion" rows="10" cols="50" placeholder="Por donde podemos empezar..." name="plan-decripcion" required></textarea>
+
+                            <label class="input" for="plan-presupuesto"><b>Presupuesto</b><p class="error-message" id="error-plan-presupuesto"></p></label>
+                            <input id="plan-presupuesto" type="text" placeholder="¿Cuánto te quieres gastar?" name="plan-presupuesto" required>
+
+                            <b>Intereses</b>
+                            <div class="plan-interest-wrapper">
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-planificar" id="plan-culture" type="checkbox" name="plan-culture" value="culture">
+                                        <label class="interest-planificar" for="plan-culture"> Cultura</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-planificar" id="plan-history" type="checkbox" name="plan-history" value="history">
+                                        <label class="interest-planificar" for="plan-history"> Historia</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container">
+                                        <input class="interest-planificar" id="plan-nature" type="checkbox" name="plan-nature" value="nature">
+                                        <label class="interest-planificar" for="plan-nature"> Naturaleza</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-planificar" id="plan-business" type="checkbox" name="plan-business" value="business">
+                                        <label class="interest-planificar" for="plan-business"> Negocios</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="interest-container"> 
+                                        <input class="interest-planificar" id="plan-gastronomy" type="checkbox" name="plan-gastromony" value="gastronomy">
+                                        <label class="interest-planificar" for="plan-gastronomy"> Gastronomía</label>
+                                    </div>
+                                    <div class="interest-container">
+                                        <input class="interest-planificar" id="plan-sports" type="checkbox" name="plan-sports" value="sports">
+                                        <label class="interest-planificar" for="plan-sports"> Deportes</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <label class="input" for="plan-email"><b>Email</b><p class="error-message" id="error-plan-email"></p></label>
+                            <input id="plan-email" type="text" placeholder="Escribe tu email" name="plan-email" required>
+                            <div class=signup-buttons>
+                                <button type="button" class="btn reset" onclick="resetPlanificar()">Restablecer</button>
+                                <button type="button" class="btn save" onclick="savePlanificar()">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="blocker" onclick="closePlanificar()"></div>
+                </div>
+                
+            </section>
+
+
+
+
+
+            <div id="chat-popup">
+                <a class="closechat" onclick="showHideChat()"></a>
+                <div id="chats-recientes">
+                    <div id="chats-recientes-header">
+                        <div class="volver-chats" id="volver-chats-buscador"><img src="images/iconos/icons8-left-50.png" alt="Volver" onclick="showChatSearch()"></div>
+                        <h2 id="chats-recientes-header-text">Conversaciones recientes</h2>
+                        <img src="images/iconos/search-user.png" alt="Search user" onclick="showChatSearch()">
+                        
+                    </div>
+                    <div id="chat-user-search">
+                        <span id="search-chat-btn" onclick="searchChat()">
+                            <div>
+                                <img src="images/iconos/search-2.png" alt="Search">
+                            </div>
+                        </span>
+                        <form id="chat-search-form" action="index.html" onsubmit="return searchChat()">
+                            <label id="search-chat-label" for="search-chat-input" style="display: none;">Buscar</label>
+                            <input id="search-chat-input" type="search" placeholder="Busca un usuario para chatear" name="search-chat-input">      
+                        </form>
+                        
+                    </div>
+                    <ul id="lista-recientes">
+                    </ul>
+                    <ul id="lista-busqueda-chat"></ul>
+                </div>
+                <div id="conversacion-container">
+                    <div id="conversacion-header">
+                        <div class="volver-chat" id="volver-chats-recientes"><img src="images/iconos/icons8-left-50.png" alt="Volver" onclick="changeChatState()"></div>
+                        <img src="images/user_account.png" alt="Usuario" id="chat-conversacion-header-usuario">
+                        <h3 id="conversation-with">Fulanito</h3>
+                    </div>
+                    <div id="conversacion">
+                    </div>
+                    <div id="caja-mensaje">
+                        <textarea id="new-message" name="new-message" placeholder="Escribe aquí tu mensaje..."></textarea>
+                        <label for="new-message" style="display: none;">h</label>
+                        <button type="button" class="enviar-mensaje" onclick="enviarMensaje()"><img src="images/iconos/icons8-email-send-24.png" alt="Enviar"></button>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+            <div id="chat-floating-button" onclick="showHideChat()">
+                <img id="chat-floating-button-image" src="images/iconos/icons8-chat-bubble-50.png" alt="chat">
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="main-footer-container">
+                <div class ="main-footer-container-logo">
+                    <img src="images/logo/logotipo2.png" alt="Booking.com">
+                </div>
+                <div class="main-footer-container-links">
+                    <div class="social-media">
+                        <ul class="social-media-ul">
+                            <li class="social-media-li faq"><a href="https://www.booking.com/tpi_faq.es.html" target = "_BLANK">FAQ</a></li>
+                            <li class="social-media-li"><a href="https://facebook.com" target="_BLANK"><img src="images/rrss/facebook-icon.svg" alt="Facebook"></a></li>
+                            <li class="social-media-li"><a href="https://instagram.com" target="_BLANK"><img src="images/rrss/instagram-icon.png" alt="Instagram"></a></li>
+                            <li class="social-media-li"><a href="https://twitter.com" target="_BLANK"><img src="images/rrss/twitter-icon.svg" alt="Twitter"></a></li>
+                        </ul>
+                    </div>
+                    <div class="links">
+                        <ul class="links-ul">
+                            <li class="links-li"><a href="https://www.booking.com/content/legal.es.html" target = "_BLANK">Copyright</a><i class="far fa-copyright"></i></li>
+                            <li class="links-li"><a href="https://www.booking.com/content/terms.es.html" target = "_BLANK">Términos y Condiciones</a><i class="far fa-file-alt"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

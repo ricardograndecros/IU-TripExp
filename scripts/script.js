@@ -1517,7 +1517,20 @@ function resetSearch(){
   document.getElementById("barrera-resultado1").style.display = "none";
   document.getElementById("barrera-resultado2").style.display = "none";
   openFilter();
-  iniciarPagina();
+
+  expCookies=getExpCookies();
+  document.getElementById("ver-mas-experiencias").style.display = "flex";
+  let texto = document.getElementById("ver-mas-experiencias").innerHTML;
+  if (texto.includes("Ver")){
+    buildInitialExperiences(expCookies);
+  }
+  else {
+    buildTotalExperiences(expCookies);
+  }
+  document.getElementById("titulo-experiencias").innerHTML = "Experiencias más visitadas";
+  //Users
+  userCookies = getUsersCookies();
+  buildRankingUsers(userCookies);
 }
 
 //Opciones de filtro

@@ -4882,6 +4882,9 @@ function loadRecentConversations(){
               if (user.username == name){
                 photo = user.photo;
               }
+              if (photo == ""){
+                photo = 'user_azul.png';
+              }
             }
             recentConversationsHTML += "<li class=\"lista-recientes-item\" onclick=\"openConversation('"+conversation.id+"')\">" +
             "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\"></div><div class=\"user-reciente-info\">" +
@@ -5194,6 +5197,9 @@ function searchColab(){
       if (user.username == username){
         photo = user.photo;
         userSelected = username;
+      }
+      if (photo == ""){
+        photo = 'user_azul.png';
       }
     }
     // construye el id de la conversación (exista o no)
@@ -6135,13 +6141,16 @@ function searchColabExp(){
   userSelected = "";
   // con todas las coincidencias, montar la lista 
   userColabList.forEach(username => {
-    photo = 'user_blanco.png';
+    photo = 'user_azul.png';
     users = getUsersCookies();
     for (let x = 0; x < users.length; x++){
       user = JSON.parse(users[x]);
       if (user.username == username){
         photo = user.photo;
         userSelected = username;
+        if (photo == ""){
+          photo = 'user_azul.png';
+        }
 
         // construye el id de la conversación (exista o no)
         resultsHTML +=  "<li class=\"lista-recientes-item\" onclick=\"addColabExp(this,'"+userSelected+"','"+photo+"' )\">" +

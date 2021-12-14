@@ -4875,7 +4875,7 @@ function loadRecentConversations(){
         namesInConversation.forEach(name => {
           if(name != loggedinUsername && conversation.conversation.length != 0){
             ////console.log(conversation.id);
-            photo = '';
+            photo = 'user_azul.png';
             users = getUsersCookies();
             for (let x = 0; x < users.length; x++){
               user = JSON.parse(users[x]);

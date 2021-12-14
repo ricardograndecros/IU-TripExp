@@ -2789,10 +2789,9 @@ input[type="range"]:active::-moz-range-thumb{
     z-index: 100; 
     width: 70vw;
     top: 10%;
-    left: 15vw;
     border-radius: 10%;
     height: 700px;
-    min-width: 280px;
+    min-width: 340px;
 }
 
 
@@ -2822,7 +2821,7 @@ input[type="range"]:active::-moz-range-thumb{
     left: 15vw;
     border-radius: 10%;
     height: 700px;
-    min-width: 280px;
+    min-width: 340px;
 }
 
 
@@ -3103,7 +3102,7 @@ input[type="range"]:active::-moz-range-thumb{
     top:10%;
     border-radius: 10%;
     height: 700px;
-    min-width: 280px;
+    min-width: 340px;
 }
 .popup-user-edit > .content {
     height: 100%;
@@ -3251,7 +3250,7 @@ input[type="range"]:active::-moz-range-thumb{
     top: 10%;
     border-radius: 10%;
     height: 700px;
-    min-width: 280px;
+    min-width: 340px;
 }
 
 
@@ -3999,7 +3998,7 @@ input[type="range"]:active::-moz-range-thumb{
 }
 .no-tiene {
     align-self: center;
-    width: 280px;
+    width: 300px;
 }
 .user-grid-iconos{
     justify-content: flex-end;

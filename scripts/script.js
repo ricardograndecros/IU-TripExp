@@ -549,6 +549,10 @@ function handle_login(){
         document.getElementById("chat-icon-header").src = "images/iconos/icons8-chat-bubble-50_notificacion.png"
         document.getElementById("chat-floating-button-image").src = "images/iconos/icons8-chat-bubble-50_notificacion.png";
       } 
+      else {
+        document.getElementById("chat-icon-header").src = "images/iconos/icons8-chat-bubble-50.png";
+        document.getElementById("chat-floating-button-image").src = "images/iconos/icons8-chat-bubble-50.png";
+      }
       colorLikesExp();
     }
     if(error != ""){
@@ -1014,7 +1018,7 @@ function validateExperiences(result){
 function buildExperience(title, location, description, picture){
   picture = "images/experiences/madrid.jpg";
   newExperienceHTML = "<div class=\"grid-item myexp-item\" onclick=\"confirmDelete(this)\">" +
-                        "<img class=\"trash-icon\" src=\"images/trash_icon.png\">"+ 
+                        "<img class=\"trash-icon\" src=\"images/trash_icon.png\" alt=\"basura\">"+ 
                         "<div class=\"experience-picture\">" +
                           "<img src=" + picture + " alt=\"Asturias, Llanes\">" +
                         "</div><div class=\"experience-body\"><div class=\"experience-title\">" +
@@ -1289,7 +1293,7 @@ function search(){
     document.getElementById("titulo-experiencias").innerHTML = "Experiencias";
     if (experiences_valid.length == 0){
       myexperiencesGrid = document.getElementById("initial-experiences-grid");
-      myexperiencesGrid.innerHTML = "<p class=\"no-tiene\" id=\"no-tiene-exp\">No hay experiencias para esa búsqueda</p><img id=\"cara-triste-exp\"src=\"images/iconos/cara-triste.png\"></p>";
+      myexperiencesGrid.innerHTML = "<p class=\"no-tiene\" id=\"no-tiene-exp\">No hay experiencias para esa búsqueda</p><img id=\"cara-triste-exp\" src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     }
     else {
       document.getElementById("ver-mas-experiencias").style.display = "none";
@@ -1401,7 +1405,7 @@ function searchUsers(users){
                 "</div>";
   }
   if (!usersGrid.includes("Foto Perfil")){
-    usersGrid+= "<p class=\"no-tiene\" id=\"no-tiene-user\">No hay usuarios para esa búsqueda</p><img id=\"cara-triste-user\"src=\"images/iconos/cara-triste.png\"></p>";
+    usersGrid+= "<p class=\"no-tiene\" id=\"no-tiene-user\">No hay usuarios para esa búsqueda</p><img id=\"cara-triste-user\" src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
   }
   myusersGrid = document.getElementById("users-search-grid");
   myusersGrid.innerHTML = usersGrid;
@@ -2529,7 +2533,7 @@ var data = [
     business: false,
     gastronomy: true,
     sports: true,
-    gallery: ["llanes.png"]
+    gallery: ["llanes.png", "llanes1.jpg", "llanes2.jpg", "llanes3.jpg", "llanes4.jpg", "llanes5.jpg"]
   },
 
   {
@@ -2977,7 +2981,7 @@ var users = [
   {
     username: 'CarlossBuche',
     password: '123456',
-    name: 'Carlos',
+    name: 'dfsddf',
     lastname: 'Camarero',
     email: 'carlossbuche@gmail.com',
     birthdate: '2000-04-05',
@@ -4104,7 +4108,7 @@ function fillPopupUserCollection(email) {
     } 
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\">No tienes colecciones</p><img src=\"images/iconos/cara-triste.png\"></p>";
+    experienceGrid = "<p class=\"no-tiene\">No tiene colecciones</p><img src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     document.getElementById("user-experiences-grid").style.fontSize = "30px";
   }
   else {
@@ -4178,7 +4182,7 @@ function fillPopupUserExperience(email){
     } 
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\">No tienes experiencias</p><img src=\"images/iconos/cara-triste.png\"></p>";
+    experienceGrid = "<p class=\"no-tiene\">No tiene experiencias</p><img src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     document.getElementById("user-experiences-grid").style.fontSize = "30px";
   }
   else {
@@ -4352,7 +4356,7 @@ function fillPopupUserColabs(email) {
                                   "<p> Creada por: "+exp.creador+"</p>"+
                                   "<div class=\"user-grid-iconos\">"+
                                       "<div class=\"user-grid-mg\">"+
-                                          "<img id=\"exp-colab-like-icon"+exp.title+"\" src="+src+" alt=mg  onclick=\"LikeOut(this)\">"+
+                                          "<img id=\"exp-colab-like-icon"+exp.title+"\" src="+src+" alt=\"mg\"  onclick=\"LikeOut(this)\">"+
                                           "<p id=\"exp-colab-likes"+exp.title+"\">"+exp.likes+"</p>"+
                                       "</div>"+
                                       "<div class=\"user-grid-comment\">"+
@@ -4386,7 +4390,7 @@ function fillPopupUserColabs(email) {
     } 
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\">No tienes colaboraciones</p><img src=\"images/iconos/cara-triste.png\"></p>";
+    experienceGrid = "<p class=\"no-tiene\">No tiene colaboraciones</p><img src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     document.getElementById("user-experiences-grid").style.fontSize = "30px";
   }
   else {
@@ -4481,7 +4485,7 @@ function fillPopupUserCollectionOpen(username, title){
                                         "<h3>"+exp.title+"</h3>"+
                                         "<div class=\"user-grid-iconos\">"+
                                             "<div class=\"user-grid-mg\">"+
-                                                "<img id=\"exp-like-icon-user-colec"+exp.title+"\" src="+src+" alt=mg  onclick=\"LikeOut(this)\">"+
+                                                "<img id=\"exp-like-icon-user-colec"+exp.title+"\" src="+src+" alt=\"mg\"  onclick=\"LikeOut(this)\">"+
                                                 "<p id=\"exp-likes-user-colec"+exp.title+"\">"+exp.likes+"</p>"+
                                             "</div>"+
                                             "<div class=\"user-grid-comment\">"+
@@ -4513,7 +4517,7 @@ function fillPopupUserCollectionOpen(username, title){
     }
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\" id=\"no-tiene-colecc\">La coleccion no tiene experiencias</p><img id=\"cara-triste-colecc\"src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
+    experienceGrid = "<p class=\"no-tiene\" id=\"no-tiene-colecc\">La coleccion no tiene experiencias</p><img id=\"cara-triste-colecc\" src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
   }
   myexperiencesGrid = document.getElementById("user-collection-experiences-grid");
   myexperiencesGrid.innerHTML = experienceGrid;
@@ -4892,7 +4896,7 @@ function loadRecentConversations(){
               }
             }
             recentConversationsHTML += "<li class=\"lista-recientes-item\" onclick=\"openConversation('"+conversation.id+"')\">" +
-            "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\"></div><div class=\"user-reciente-info\">" +
+            "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\" alt=\"user\"></div><div class=\"user-reciente-info\">" +
             "<h4>"+name+"</h4><p>"+conversation.conversation.at(-1).message+"</p></div></li>"
 
             conversationCount += 1; 
@@ -5139,7 +5143,7 @@ function searchChat(){
       }
     }
     resultsHTML +=  "<li class=\"lista-recientes-item\" onclick=\"openConversation('"+conversationID+"')\">" +
-    "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\"></div><div class=\"user-reciente-info\">" +
+    "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\" alt=\"user\"></div><div class=\"user-reciente-info\">" +
     "<h4>"+username+"</h4><p>"+"</p></div></li>"
   })
   if(numCoincidencias == 0){
@@ -5209,7 +5213,7 @@ function searchColab(){
     }
     // construye el id de la conversación (exista o no)
     resultsHTML +=  "<li class=\"lista-recientes-item\" onclick=\"addColab(this,'"+userSelected+"','"+photo+"' )\">" +
-    "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\"></div><div class=\"user-reciente-info\">" +
+    "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\" alt=\"user\"></div><div class=\"user-reciente-info\">" +
     "<h4>"+username+"</h4><p>"+"</p></div></li>"
   });
   if(numCoincidencias == 0){
@@ -5633,7 +5637,7 @@ function loadMyExperiences(email){
                                     "<h3>"+exp.title+"</h3>"+
                                     "<div class=\"user-grid-iconos\">"+
                                         "<div class=\"user-grid-mg\" style=\"cursor: default\">"+
-                                            "<img id=\"exp-like-icon-user"+exp.title+"\" src="+src+" alt=mg>"+
+                                            "<img id=\"exp-like-icon-user"+exp.title+"\" src="+src+" alt=\"mg\">"+
                                             "<p id=\"exp-likes-user"+exp.title+"\">"+exp.likes+"</p>"+
                                         "</div>"+
                                         "<div class=\"user-grid-comment\" style=\"cursor: default\">"+
@@ -5650,7 +5654,7 @@ function loadMyExperiences(email){
     } 
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\">No tiene experiencias</p><img src=\"images/iconos/cara-triste.png\"></p>";
+    experienceGrid = "<p class=\"no-tiene\">No tienes experiencias</p><img src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     document.getElementById("myuser-experiences-grid").style.fontSize = "30px";
   }
   else {
@@ -5899,7 +5903,7 @@ function fillEditCollectionExperiences(title, username){
                                         "<h3>"+exp.title+"</h3>"+
                                         "<div class=\"user-grid-iconos\">"+
                                             "<div class=\"user-grid-mg\">"+
-                                                "<img id=\"exp-like-icon-user"+exp.title+"\" src="+src+" alt=mg  onclick=\"LikeOut(this)\">"+
+                                                "<img id=\"exp-like-icon-user"+exp.title+"\" src="+src+" alt=\"mg\"  onclick=\"LikeOut(this)\">"+
                                                 "<p id=\"exp-likes-user"+exp.title+"\">"+exp.likes+"</p>"+
                                             "</div>"+
                                             "<div class=\"user-grid-comment\">"+
@@ -6159,7 +6163,7 @@ function searchColabExp(){
 
         // construye el id de la conversación (exista o no)
         resultsHTML +=  "<li class=\"lista-recientes-item\" onclick=\"addColabExp(this,'"+userSelected+"','"+photo+"' )\">" +
-        "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\"></div><div class=\"user-reciente-info\">" +
+        "<div class=\"user-reciente-foto\"><img src=\"images/perfiles/"+photo+"\" alt=\"user\"></div><div class=\"user-reciente-info\">" +
         "<h4>"+username+"</h4><p>"+"</p></div></li>";
       }
     }
@@ -6174,7 +6178,7 @@ function searchColabExp(){
 
 function addColabExp(element, username, photo){
   ////console.log(element);
-  document.getElementById("lista-colab-exp").innerHTML += "<li class=\"lista-recientes-item\">" + "<div class=\"user-reciente-foto\">"+"<img src=\"images/perfiles/"+photo+"\">"+
+  document.getElementById("lista-colab-exp").innerHTML += "<li class=\"lista-recientes-item\">" + "<div class=\"user-reciente-foto\">"+"<img src=\"images/perfiles/"+photo+"\" alt=\"user\">"+
                                                       "</div><div class=\"user-reciente-info\">" + "<h4>"+username+"</h4><p>"+"</p></div>"+
                                                       "<div class=\"remove-colab-search\" onclick=\"removeCollaboratorExpSearch('"+username+"')\"><img src=\"images/iconos/x.png\" alt=\"eliminar\"></div></li>";
 
@@ -6697,7 +6701,7 @@ function loadMyCollaboration(email){
                                   "<p> Creada por: "+exp.creador+"</p>"+
                                   "<div class=\"user-grid-iconos\">"+
                                       "<div class=\"user-grid-mg\" style=\"cursor: default\">"+
-                                          "<img id=\"exp-like-icon"+exp.title+"\" src="+src+" alt=mg>"+
+                                          "<img id=\"exp-like-icon"+exp.title+"\" src="+src+" alt=\"mg\">"+
                                           "<p id=\"exp-likes"+exp.title+"\">"+exp.likes+"</p>"+
                                       "</div>"+
                                       "<div class=\"user-grid-comment\" style=\"cursor: default\">"+
@@ -6714,7 +6718,7 @@ function loadMyCollaboration(email){
     } 
   }
   if (experienceGrid == ""){
-    experienceGrid = "<p class=\"no-tiene\">No tienes colaboraciones</p><img src=\"images/iconos/cara-triste.png\"></p>";
+    experienceGrid = "<p class=\"no-tiene\">No tienes colaboraciones</p><img src=\"images/iconos/cara-triste.png\" alt=\"cara-triste\"></p>";
     document.getElementById("myuser-experiences-grid").style.fontSize = "30px";
   }
   else {
@@ -6777,7 +6781,7 @@ let experiences = getExpCookies();
         for (let z = 0; z < users.length; z++){
           user = JSON.parse(users[z]);
           if (user.username == colabs[j]){
-            document.getElementById("lista-colab-exp").innerHTML += "<li class=\"lista-recientes-item\">" + "<div class=\"user-reciente-foto\">"+"<img src=\"images/perfiles/"+user.photo+"\">"+
+            document.getElementById("lista-colab-exp").innerHTML += "<li class=\"lista-recientes-item\">" + "<div class=\"user-reciente-foto\">"+"<img src=\"images/perfiles/"+user.photo+"\" alt=\"user\">"+
                                                                     "</div><div class=\"user-reciente-info\">" + "<h4>"+user.username+"</h4><p>"+"</p></div>"+
                                                                     "</li>";
           }

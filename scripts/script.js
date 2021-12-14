@@ -5187,7 +5187,7 @@ function searchColab(){
   userSelected = "";
   // con todas las coincidencias, montar la lista 
   userColabList.forEach(username => {
-    photo = '';
+    photo = 'user_blanco.png';
     users = getUsersCookies();
     for (let x = 0; x < users.length; x++){
       user = JSON.parse(users[x]);
@@ -6135,7 +6135,7 @@ function searchColabExp(){
   userSelected = "";
   // con todas las coincidencias, montar la lista 
   userColabList.forEach(username => {
-    photo = '';
+    photo = 'user_blanco.png';
     users = getUsersCookies();
     for (let x = 0; x < users.length; x++){
       user = JSON.parse(users[x]);

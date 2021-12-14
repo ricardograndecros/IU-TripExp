@@ -4182,7 +4182,7 @@ function fillPopupUserExperience(email){
   myexperiencesGrid = document.getElementById("user-experiences-grid");
   myexperiencesGrid.innerHTML = experienceGrid;
 
-  if(loggedInEmail != ""){
+  if(loggedInEmail != "" && !experienceGrid.includes("cara-triste")){
     Array.from(myexperiencesGrid.childNodes).forEach(experience => {
       experience.childNodes[1].childNodes[1].childNodes[2].childNodes[1].childNodes[1].addEventListener("mouseenter", function(event){
         tituloExperiencia = experience.childNodes[1].childNodes[0].innerText;
@@ -4390,7 +4390,7 @@ function fillPopupUserColabs(email) {
   myexperiencesGrid = document.getElementById("user-experiences-grid");
   myexperiencesGrid.innerHTML = experienceGrid;
 
-  if(loggedInEmail != ""){
+  if(loggedInEmail != "" && !experienceGrid.includes("cara-triste")){
     Array.from(myexperiencesGrid.childNodes).forEach(experience => {
       ////console.log(experience.childNodes[2].childNodes[2].childNodes[2].childNodes[1].childNodes[1]);
       ////console.log(experience.childNodes[0].childNodes[1].innerText)

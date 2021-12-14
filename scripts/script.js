@@ -705,6 +705,9 @@ function handle_registration(){
     document.getElementById("error-birthdate").style.display = "flex";
     validated = false;
   }
+  if (result.photo == ""){
+    result.photo = "user_blanco.png";
+  }
   if(!validatePhoto(result.photo)){
     ////console.log("Invalid photo");
     document.getElementById("photo").style.border = "2px solid red";
@@ -4875,7 +4878,7 @@ function loadRecentConversations(){
         namesInConversation.forEach(name => {
           if(name != loggedinUsername && conversation.conversation.length != 0){
             ////console.log(conversation.id);
-            photo = 'user_azul.png';
+            photo = "user_azul.png";
             users = getUsersCookies();
             for (let x = 0; x < users.length; x++){
               user = JSON.parse(users[x]);
@@ -4883,7 +4886,7 @@ function loadRecentConversations(){
                 photo = user.photo;
               }
               if (photo == ""){
-                photo = 'user_azul.png';
+                photo = "user_azul.png";
               }
             }
             recentConversationsHTML += "<li class=\"lista-recientes-item\" onclick=\"openConversation('"+conversation.id+"')\">" +

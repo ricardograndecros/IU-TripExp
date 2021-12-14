@@ -705,9 +705,6 @@ function handle_registration(){
     document.getElementById("error-birthdate").style.display = "flex";
     validated = false;
   }
-  if (result.photo == ""){
-    result.photo = "user_blanco.png";
-  }
   if(!validatePhoto(result.photo)){
     ////console.log("Invalid photo");
     document.getElementById("photo").style.border = "2px solid red";
@@ -739,7 +736,12 @@ function handle_registration(){
     }
     if(getCookie(result.email) == "" && !username_other){
       //Ponemos la imagen bien
-      result.photo = result.photo.slice(12);
+      if (result.photo == ""){
+        result.photo = "user_blanco.png";
+      }
+      else {
+        result.photo = result.photo.slice(12);
+      }
       setCookie(result.email, JSON.stringify(result), 10);
       closeForm();
       document.getElementById("snackbar").style.display="block";

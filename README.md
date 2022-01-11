@@ -1,4 +1,6 @@
 # IU-TripExp
+![alt text](https://github.com/ricardograndecros/IU-TripExp/blob/main/images/logo/logotipo2.png?raw=true)
+
 This project consists of a simple website that uses LocalSotrage (cookies) to simulate a database. This is my first website project done for User Intefaces course @ uc3m.
 
 ## Participants
